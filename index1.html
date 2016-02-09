@@ -392,6 +392,9 @@
 
             <!-- draw graph -->
             <div class="right_col" role="main">
+
+    <h1  onclick="test('wow',this)">Click on this text!</h1>
+
             <div class="col-md-12">
             <div class="col-md-6">   
             <button type="button" id="showRoom" class="btn btn-success btn-lg">Room</button>
@@ -401,6 +404,7 @@
 
             <div class="col-md-6">
             <button type="button" id="showTag" class="btn btn-success btn-lg">Tag</button>
+            <div id="tag"></div>
             </div>
             </div>
 
@@ -480,14 +484,27 @@
     <script type="text/javascript" src="js/flot/jquery.flot.spline.js"></script>
     <script type="text/javascript" src="js/flot/jquery.flot.stack.js"></script>
     <script type="text/javascript" src="js/flot/curvedLines.js"></script>
-    <script type="text/javascript" src="js/flot/jquery.flot.resize.js"></script>
-    
+    <script type="text/javascript" src="js/flot/jquery.flot.resize.js"></script>   
     <!--import room and tag-->
     <script type="text/javascript" src="room_tag.js"></script>
+  <!--  <script type="text/javascript" src="showtag.js"></script>-->
+  <script>
+    function showTagFromRoom(room){
+        console.log(room);
+        $('#tag').append("<button type='button' id='bangrak' class='btn btn-primary btn-sm'>"+room+"</button>");
+    }
+
+  </script>
+
+
     <!--draw graph !! -->
     <script type="text/javascript" src="drawgraph.js"></script>
 
-
+<script>
+var test =function(value,object){  
+alert(value);
+};     
+</script>
 
 
    
