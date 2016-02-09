@@ -95,8 +95,14 @@
     $("#showRoom").click(function(){
         $("#room").show();
     });
-    $("#hideRoom").click(function(){
+    $("#hideroom").click(function(){
         $("#room").hide();
+    });
+    $("#showTag").click(function(){
+        $("#tag").show();
+    });
+    $("#hidetag").click(function(){
+        $("#tag").hide();
     });
 });
     </script>
@@ -389,8 +395,8 @@
             <div class="col-md-12">
             <div class="col-md-6">   
             <button type="button" id="showRoom" class="btn btn-success btn-lg">Room</button>
-            <div id="room" style="display:none">
-            </div>
+            <div id="room" style="display:none"></div>
+
             </div>
 
             <div class="col-md-6">
@@ -399,9 +405,9 @@
             </div>
 
             <div  style="text-align:center">
-            <button type="button" class="btn btn-primary btn-md">Degree of centrality</button>
-            <button type="button" class="btn btn-primary btn-md">Betweenness of centrality</button>
-            <button type="button" class="btn btn-primary btn-md">Closesness of centrality</button>
+            <button type="button" class="btn btn-warning btn-md">Degree of centrality</button>
+            <button type="button" class="btn btn-warning btn-md">Betweenness of centrality</button>
+            <button type="button" class="btn btn-warning btn-md">Closesness of centrality</button>
             </div>   
                 <div id="container">
                 <style>
