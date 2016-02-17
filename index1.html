@@ -90,6 +90,16 @@
 <script src="plugins/sigma.layout.forceAtlas2.min.js"></script>
 <script scr ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<script src="plugins/sigma.parsers.json/sigma.parsers.json.js"></script>
+<script src="plugins/sigma.parsers.cypher/sigma.parsers.cypher.js"></script>
+
+<!--edgeslist-->
+<!--<script src="plugins/sigma.renderers.edgeLabels/settings.js"></script>
+<script src="plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.def.js"></script>
+<script src="plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curve.js"></script>
+<script src="plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curvedArrow.js"></script>-->
+
 <script>
     $(document).ready(function(){
     $("#showRoom").click(function(){
@@ -406,20 +416,22 @@
             </div>
 
             <div  style="text-align:center">
-            <button type="button" class="btn btn-warning btn-md">Degree of centrality</button>
-            <button type="button" class="btn btn-warning btn-md">Betweenness of centrality</button>
-            <button type="button" class="btn btn-warning btn-md">Closesness of centrality</button>
+            <button type="button" value="1" onclick="showType(1)" class="btn btn-warning btn-md">Degree of centrality</button>
+            <button type="button" value="2" onclick="showType(2)" class="btn btn-warning btn-md">Betweenness of centrality</button>
+            <button type="button" value="3" onclick="showType(3)" class="btn btn-warning btn-md">Closesness of centrality</button>
+            <button type="button" value="3" onclick="refresh()" class="btn btn-warning btn-sm">refresh</button>            
             </div>   
+
                 <div id="container">
                 <style>
                 #graph-container {
-                max-width: 400px;
+                max-width: 950px;
                 height: 400px;
                 margin: auto;
                 }
                  </style>
                 <div id="graph-container"></div>
-
+                <center><div id="room_type"></div></center>
             </div>
 
                
@@ -486,16 +498,31 @@
     <script type="text/javascript" src="room_tag.js"></script>
   <!--  <script type="text/javascript" src="showtag.js"></script>-->
   <script>
-    function showTagFromRoom(room){
-        console.log(room);
-        $('#tag').append("<button type='button' id='bangrak' class='btn btn-primary btn-sm'>"+room+"</button>");
+    //var type = document.getElementById("centrality").value;
+    var room;
+    var type;
+   // console.log(type);
+    function showTagFromRoom(roomr){
+        room = roomr;
+       // $('#tag').append("<button type='button' id='bangrak' class='btn btn-primary btn-sm'>"+room+"</button>");
     }
+    function showType(typet){
+        type = typet  
+        sendToGraph(room,type);
+       // $('#tag').append("<button type='button' id='bangrak' class='btn btn-primary btn-sm'>"+room+"</button>");
+    }
+    function refresh(){
+        location.reload();
+    }
+
 
   </script>
 
 
     <!--draw graph !! -->
-    <script type="text/javascript" src="drawgraph.js"></script>
+    <script type="text/javascript" src="sendtograph.js"></script>
+    <!--<script type="text/javascript" src="drawgraph.js"></script>-->
+    <>
    
 </body>
 
