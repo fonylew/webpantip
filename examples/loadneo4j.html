@@ -73,7 +73,7 @@
      */
     sigma.neo4j.cypher(
             { url: 'http://localhost:7474', user: 'neo4j', password: 'root' },
-            'MATCH (u:User)-[:REPLIED]->(c:Comment) RETURN u,c LIMIT 100',
+            'MATCH (u:User)-[:REPLIED]->(p:Topic) RETURN u,p LIMIT 10',
             { container: 'graph-container' } ,
             function(s) {
                 console.log('Number of nodes :'+ s.graph.nodes().length);
@@ -85,7 +85,7 @@
     sigma.neo4j.getTypes(
             { url: 'http://localhost:7474', user:'neo4j', password:'root' },
             function(types) {
-                console.log("Relationship types" + types);
+                console.log("Relationship types " + types);
             }
     );
 
@@ -93,7 +93,7 @@
     sigma.neo4j.getLabels(
             { url: 'http://localhost:7474', user:'neo4j', password:'root' },
             function(labels) {
-                console.log("Node labels" + labels);
+                console.log("Node labels " + labels);
             }
     );
 </script>

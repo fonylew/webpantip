@@ -55,6 +55,8 @@
       bottom: 0;
       left: 0;
       right: 0;
+      max-width: 950px;
+      height: 400px;
       position: absolute;
     }
   </style>
@@ -115,11 +117,7 @@ sigma.parsers.json(
                     edges = s.graph.edges(),
                     lenE = edges.length;
               console.log(edges[0].id);     
-             for(j = 0 ; j < lenE; j++){
-                //edges[j].id = "kuy";
-                  s.edges.push({ id: 'e' + 0000000});
-                //console.log(edges[j].id);
-             }        
+      
              console.log(edges[0].id+"hello");
             // Refresh the display:
             s.refresh();

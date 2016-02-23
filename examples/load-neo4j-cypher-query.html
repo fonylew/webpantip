@@ -72,7 +72,7 @@
      * It based on the json parser (that's why its must be loaded).
      */
     sigma.neo4j.cypher(
-            { url: 'http://localhost:7474', user: 'neo4j', password: 'admin' },
+            { url: 'http://localhost:7474', user: 'neo4j', password: 'root' },
             'MATCH (n) OPTIONAL MATCH (n)-[r]->(m) RETURN n,r,m LIMIT 100',
             { container: 'graph-container' } ,
             function(s) {
@@ -83,7 +83,7 @@
 
     // Calling neo4j to get all its relationship type
     sigma.neo4j.getTypes(
-            { url: 'http://localhost:7474', user:'neo4j', password:'admin' },
+            { url: 'http://localhost:7474', user:'neo4j', password:'root' },
             function(types) {
                 console.log("Relationship types" + types);
             }
@@ -91,7 +91,7 @@
 
     // Calling neo4j to get all its node label
     sigma.neo4j.getLabels(
-            { url: 'http://localhost:7474', user:'neo4j', password:'admin' },
+            { url: 'http://localhost:7474', user:'neo4j', password:'root' },
             function(labels) {
                 console.log("Node labels" + labels);
             }

@@ -3,8 +3,10 @@
          var g = {
             nodes: [],
             edges: []
-        },
-            colors = [
+        }
+        var data ;
+
+       var colors = [
       '#FFA000',//yellow 
       '#009688',//turquoise
       '#00BCD4',//light blue
@@ -24,23 +26,34 @@
     sigma.neo4j.cypher(
             { url: 'http://localhost:7474', user: 'neo4j', password: 'root' },
             'match (u:User)-[:POSTED]->(p:Topic)<-[r:REPLIED]-(),(p:Topic)-[c:CLASSED]->(g:Room{name: "'+room+'"}) return u,p,count(r) as DegreeScore order by DegreeScore desc limit 10;',
-           s,
+           s,//match (u:User)-[:POSTED]->(p:Topic)<-[r:REPLIED]-(),(p:Topic)-[c:CLASSED]->(g:Room{name: "'+room+'"}) return u,p,count(r) as DegreeScore order by DegreeScore desc limit 10;
             function() {
 
                 console.log('Number of nodes :'+ s.graph.nodes().length);
                 var i,
                 nodes = s.graph.nodes(),
                 lenN = nodes.length;
+                data = new Array(lenN);
                 for (i = 0; i < lenN; i++) {
                     nodes[i].x = Math.random();
-                    nodes[i].y = Math.random();
+                    nodes[i].y = Math.random();                    
                     nodes[i].size = s.graph.degree(nodes[i].id)+10;
-                    if(nodes[i].neo4j_labels == "User") nodes[i].color = colors[0];
-                    if(nodes[i].neo4j_labels == "Topic") nodes[i].color = colors[1];
+                    if(nodes[i].neo4j_labels == "User") {
+                      nodes[i].color = colors[0];
+                      nodes[i].label = nodes[i].neo4j_data['id'];
+                      data[i] = nodes[i].label;
+                      console.log(nodes[i].label +" User");
+                    } 
+              
+                    if(nodes[i].neo4j_labels == "Topic"){
+                     nodes[i].color = colors[1];
+                     nodes[i].label = nodes[i].neo4j_data['id'];
+                     console.log(nodes[i].label +" Topic");
+                      //nodes[i].label = nodes[i].neo4j_data['id'];
+                   }
                     if(nodes[i].neo4j_labels == "Room") nodes[i].color = colors[2];
                     if(nodes[i].neo4j_labels == "Tag") nodes[i].color = colors[3];
                     //nodes[i].color = colors[Math.floor(Math.random() * colors.length)];
-                    console.log(nodes[i].neo4j_labels);
 
                 }
                 console.log('Number of edges :'+ s.graph.edges().length);
@@ -78,6 +91,7 @@
               /*  setTimeout(function () {
                 s.killForceAtlas2();
                       }, 1800);*/
+              sentDataToArray(data);
             }
     );
 
@@ -98,5 +112,14 @@
             }
     );
 
+    /*
+    for(var i = 0 ; i < 10 ;i++) {
+    $('#user_list'+i+'').append(data[i]);
+    }*/
     $('#room_type').append(room+" "+type);
+}
+function sentDataToArray(data){
+     for(var i = 0 ; i < 10 ;i++) {
+    $('#user_list'+i+'').append('<a href="http://pantip.com/profile/'+data[i]+'">'+data[i]+'</a>');
+  }
 }
