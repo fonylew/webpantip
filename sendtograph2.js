@@ -7,10 +7,10 @@ function sendToGraph2(user){
         var data ;
 
        var colors = [
-      '#FFA000',//yellow 
-      '#009688',//turquoise
-      '#00BCD4',//light blue
-      '#FF5252'// red
+      '#FFA000',//yellow user
+      '#009688',//turquoise topic 
+      '#00BCD4',//light blue room
+      '#FF5252'// red tag
     ];
     var s = new sigma({
       graph: g,
@@ -25,7 +25,7 @@ function sendToGraph2(user){
 
     sigma.neo4j.cypher(
             { url: 'http://localhost:7474', user: 'neo4j', password: 'root' },
-            'match (u:User{id:993778})-[v:POSTED]->(p:Topic)<-[r:REPLIED]-(o:User) return u,p,o,v,r;',
+            'match (u:User{id:'+user+'})-[v:POSTED]->(p:Topic)<-[r:REPLIED]-(o:User) return u,p,o,v,r;',
            s,//match (u:User)-[:POSTED]->(p:Topic)<-[r:REPLIED]-(),(p:Topic)-[c:CLASSED]->(g:Room{name: "'+room+'"}) return u,p,count(r) as DegreeScore order by DegreeScore desc limit 10;
             function() {
 
@@ -37,7 +37,7 @@ function sendToGraph2(user){
                 for (i = 0; i < lenN; i++) {
                     nodes[i].x = Math.random();
                     nodes[i].y = Math.random();                    
-                    nodes[i].size = s.graph.degree(nodes[i].id)+10;
+                    nodes[i].size = s.graph.degree(nodes[i].id);
                     if(nodes[i].neo4j_labels == "User") {
                       nodes[i].color = colors[0];
                       nodes[i].label = nodes[i].neo4j_data['id'];

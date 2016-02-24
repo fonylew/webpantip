@@ -428,6 +428,7 @@
                 max-width: 950px;
                 height: 400px;
                 margin: auto;
+                display: none;
                 }
                 #graph-container2 {
                 max-width: 950px;
@@ -435,9 +436,10 @@
                 margin: auto;
                 }
                  </style>
-                 <div>
-                <br><br>
-                <div id="graph-container" class="col-md-8"></div>
+                <div class="row">
+                <div id="graph">  
+                <div id="graph-container2" class="col-md-8"></div>
+                </div>
                  <div class="col-md-4">
                 <div id="user_list0"></div>
                 <div id="user_list1"></div>
@@ -452,11 +454,11 @@
                 <div id="room_type"></div>
                 </div>
                 </div>
-
-                <div id="graph-container2"></div>
+                <div class="row"> 
+                <div id="graph-container"></div>
+                </div>
                 </div>
 
-                
 
             </div>
         </div>
@@ -539,6 +541,8 @@
     function sendUser(user){
         var userId = document.getElementById("huser_list"+user).value;
         alert(userId);
+        $('#graph-container').remove(); 
+        $('#graph').html('<div id="graph-container2" class="col-md-8" ></div>'); 
         sendToGraph2(userId);
     }
 
