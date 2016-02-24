@@ -429,6 +429,11 @@
                 height: 400px;
                 margin: auto;
                 }
+                #graph-container2 {
+                max-width: 950px;
+                height: 400px;
+                margin: auto;
+                }
                  </style>
                  <div>
                 <br><br>
@@ -447,9 +452,11 @@
                 <div id="room_type"></div>
                 </div>
                 </div>
+
+                <div id="graph-container2"></div>
                 </div>
 
-               
+                
 
             </div>
         </div>
@@ -529,6 +536,11 @@
     function refresh(){
         location.reload();
     }
+    function sendUser(user){
+        var userId = document.getElementById("huser_list"+user).value;
+        alert(userId);
+        sendToGraph2(userId);
+    }
 
 
   </script>
@@ -536,8 +548,9 @@
 
     <!--draw graph !! -->
     <script type="text/javascript" src="sendtograph.js"></script>
+    <script type="text/javascript" src="sendtograph2.js"></script>
     <!--<script type="text/javascript" src="drawgraph.js"></script>-->
-    <>
+
    
 </body>
 
