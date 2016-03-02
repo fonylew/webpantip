@@ -1,4 +1,4 @@
-    function sendToGraph(room,type){
+    function getCentrality(room,type){
     alert(room+" "+type);
          var g = {
             nodes: [],
