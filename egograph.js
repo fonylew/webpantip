@@ -23,7 +23,7 @@ function createEgoGraph(user){
     }); 
 
     sigma.neo4j.cypher(
-            { url: 'http://localhost:7474', user: 'neo4j', password: 'root' },
+            { url: 'http://104.197.136.113:7474', user: 'neo4j', password: 'root' },
             'match (u:User{id:'+user+'})-[v:POSTED]->(p:Topic)<-[r:REPLIED]-(o:User) return u,p,o,v,r;',
            s,//match (u:User)-[:POSTED]->(p:Topic)<-[r:REPLIED]-(),(p:Topic)-[c:CLASSED]->(g:Room{name: "'+room+'"}) return u,p,count(r) as DegreeScore order by DegreeScore desc limit 10;
             function() {
@@ -39,16 +39,14 @@ function createEgoGraph(user){
                     nodes[i].size = s.graph.degree(nodes[i].id);
                     if(nodes[i].neo4j_labels == "User") {
                       nodes[i].color = colors[0];
-                      nodes[i].label = nodes[i].neo4j_data['id'];
                       data[i] = nodes[i].label;
                       console.log(nodes[i].label +" User222222");
                     } 
               
                     if(nodes[i].neo4j_labels == "Topic"){
                      nodes[i].color = colors[1];
-                     nodes[i].label = nodes[i].neo4j_data['id'];
+                    // nodes[i].label = nodes[i].neo4j_data['id'];
                      console.log(nodes[i].label +" Topic22222222");
-                      //nodes[i].label = nodes[i].neo4j_data['id'];
                    }
                     if(nodes[i].neo4j_labels == "Room") nodes[i].color = colors[2];
                     if(nodes[i].neo4j_labels == "Tag") nodes[i].color = colors[3];

@@ -24,7 +24,7 @@
     }); 
 
     sigma.neo4j.cypher(
-            { url: 'http://localhost:7474', user: 'neo4j', password: 'root' },
+            { url: 'http://104.197.136.113:7474', user: 'neo4j', password: 'root' },
             'match (u:User)-[:POSTED]->(p:Topic)<-[r:REPLIED]-(),(p:Topic)-[c:CLASSED]->(g:Room{name: "'+room+'"}) return u,p,count(r) as degreeScore order by degreeScore desc limit 10;',
            s,//match (u:User)-[:POSTED]->(p:Topic)<-[r:REPLIED]-(),(p:Topic)-[c:CLASSED]->(g:Room{name: "'+room+'"}) return u,p,count(r) as DegreeScore order by DegreeScore desc limit 10;
             function() {
@@ -100,7 +100,7 @@
 
     // Calling neo4j to get all its relationship type
     sigma.neo4j.getTypes(
-            { url: 'http://localhost:7474', user:'neo4j', password:'root' },
+            { url: 'http://104.197.136.113:7474', user:'neo4j', password:'root' },
             function(types) {
                 console.log("Relationship types " + types);
             }
@@ -108,7 +108,7 @@
 
     // Calling neo4j to get all its node label
     sigma.neo4j.getLabels(
-            { url: 'http://localhost:7474', user:'neo4j', password:'root' },
+            { url: 'http://104.197.136.113:7474', user:'neo4j', password:'root' },
             function(labels) {
                 console.log("Node labels " + labels);
             }

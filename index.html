@@ -532,7 +532,8 @@
     }
     function showType(typet){
         type = typet  
-        getCentrality(room,type);
+        if(type==1) getCentrality(room,type);
+        if(type==3) getClosesness(room,type);
        // $('#tag').append("<button type='button' id='bangrak' class='btn btn-primary btn-sm'>"+room+"</button>");
     }
     function refresh(){
@@ -551,6 +552,7 @@
 
     <!--draw graph !! -->
     <script type="text/javascript" src="order_centrality.js"></script>
+    <script type="text/javascript" src="order_closesness.js"></script>
     <script type="text/javascript" src="egograph.js"></script>
     <!--<script type="text/javascript" src="drawgraph.js"></script>-->
 

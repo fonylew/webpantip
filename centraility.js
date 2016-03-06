@@ -40,7 +40,6 @@
                     nodes[i].size = s.graph.degree(nodes[i].id)+10;
                     if(nodes[i].neo4j_labels == "User") {
                       nodes[i].color = colors[0];
-                      nodes[i].label = nodes[i].neo4j_data['id'];
                       data[i] = nodes[i].label;
                       console.log(nodes[i].label +" User");
                     } 
