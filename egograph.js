@@ -1,4 +1,5 @@
 function createEgoGraph(user){
+    console.log("createEgo already !!")
          var g = {
             nodes: [],
             edges: []
@@ -28,7 +29,7 @@ function createEgoGraph(user){
            s,//match (u:User)-[:POSTED]->(p:Topic)<-[r:REPLIED]-(),(p:Topic)-[c:CLASSED]->(g:Room{name: "'+room+'"}) return u,p,count(r) as DegreeScore order by DegreeScore desc limit 10;
             function() {
 
-                console.log('Number of nodes2222 :'+ s.graph.nodes().length);
+                console.log('Number of nodes:'+ s.graph.nodes().length);
                 var i,
                 nodes = s.graph.nodes(),
                 lenN = nodes.length;
@@ -40,20 +41,20 @@ function createEgoGraph(user){
                     if(nodes[i].neo4j_labels == "User") {
                       nodes[i].color = colors[0];
                       data[i] = nodes[i].label;
-                      console.log(nodes[i].label +" User222222");
+                      //console.log(nodes[i].label +" User222222");
                     } 
               
                     if(nodes[i].neo4j_labels == "Topic"){
                      nodes[i].color = colors[1];
                     // nodes[i].label = nodes[i].neo4j_data['id'];
-                     console.log(nodes[i].label +" Topic22222222");
+                     //console.log(nodes[i].label +" Topic22222222");
                    }
                     if(nodes[i].neo4j_labels == "Room") nodes[i].color = colors[2];
                     if(nodes[i].neo4j_labels == "Tag") nodes[i].color = colors[3];
                     //nodes[i].color = colors[Math.floor(Math.random() * colors.length)];
 
                 }
-                console.log('Number of edges222 :'+ s.graph.edges().length);
+                console.log('Number of edges:'+ s.graph.edges().length);
                 var j,
                 edges = s.graph.edges(),
                 lenE = edges.length;
@@ -80,7 +81,7 @@ function createEgoGraph(user){
                 startingIterations: 1,
                 iterationsPerRender: 1
                 };
-
+                console.log("egograph finish!!");
                 s.startForceAtlas2(fa2config);
                 window.setTimeout(function () {
                     s.stopForceAtlas2();

@@ -1,4 +1,4 @@
-    function getCentrality(room,type){
+    function geasdftCentrality(room,type){
     alert(room+" "+type);
          var g = {
             nodes: [],
@@ -118,9 +118,15 @@
     $('#room_type').append(room+" "+type);
 }
 function sentDataToArray(data){
+    console.log("centraility.js");
      for(var i = 0 ; i < 10 ;i++) {
-    $('#user_list'+i+'').append('<a href="http://pantip.com/profile/'+data[i]+'">'+data[i]+'</a> <button  onclick=\"sendUser('+i+')\"> view graph </button>\
-    <input id="huser_list'+i+'" type="hidden" value ="'+data[i]+'"></input>');
+    $('#user_list'+i+'').append('<table><tr><td>User Profile</td><td>View graph</td><td>Degree of centrality</td><td>Betweenness of centrality</td><td>Closeness of centrality</td></tr>\
+    <tr><td><a href="http://pantip.com/profile/'+data[i]+'">'+data[i]+'</a></td>\
+    <td><button  onclick=\"sendUser('+i+')\"> view graph </button></td>\
+    <td>adsfadsf</td>\
+    <td>adsfasdfasdfadsfasfa</td>\
+    <td>aaaaaaaaaaa</td></tr></table>\
+    ');
   }
 }
 

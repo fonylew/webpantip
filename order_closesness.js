@@ -121,6 +121,7 @@
     $('#room_type').append(room+" "+type);
 }
 function sentDataToArray(data){
+  console.log("order_closesness.js");
      for(var i = 0 ; i < 10 ;i++) {
     $('#user_list'+i+'').append('<a href="http://pantip.com/profile/'+data[i]+'">'+data[i]+'</a> <button  onclick=\"sendUser('+i+')\"> view graph </button>\
     <input id="huser_list'+i+'" type="hidden" value ="'+data[i]+'"></input>');

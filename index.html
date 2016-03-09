@@ -402,18 +402,12 @@
 
             <!-- draw graph -->
             <div class="right_col" role="main">
-            <div class="col-md-12">
-            <div class="col-md-6">   
+            <div>   
             <button type="button" id="showRoom" class="btn btn-success btn-lg">Room</button>
             <div id="room" style="display:none"></div>
 
             </div>
 
-            <div class="col-md-6">
-            <button type="button" id="showTag" class="btn btn-success btn-lg">Tag</button>
-            <div id="tag"></div>
-            </div>
-            </div>
 
             <div  style="text-align:center">
             <button type="button" value="1" onclick="showType(1)" class="btn btn-warning btn-md">Degree of centrality</button>
@@ -425,44 +419,54 @@
                 <div id="container">
                 <style>
                 #graph-container {
-                max-width: 950px;
+                max-width: 100%;
                 height: 400px;
                 margin: auto;
                 display: none;
                 }
                 #graph-container2 {
-                max-width: 950px;
+                max-width: 100%;
                 height: 400px;
                 margin: auto;
+                border-width: 1px;
                 }
                  </style>
                 <div class="row">
                 <div id="graph">  
-                <div id="graph-container2" class="col-md-8"></div>
+                <div id="graph-container2"></div>
                 </div>
-                 <div class="col-md-4">
-                <div id="user_list0"></div>
-                <div id="user_list1"></div>
-                <div id="user_list2"></div>
-                <div id="user_list3"></div>
-                <div id="user_list4"></div>
-                <div id="user_list5"></div>
-                <div id="user_list6"></div>
-                <div id="user_list7"></div>
-                <div id="user_list8"></div>
-                <div id="user_list9"></div>               
+                </div>
+                <br>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                <th>User Profile</th><th>View graph</th><th>Degree of centrality</th><th>Betweenness of centrality</th><th>Closeness of centrality</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                                <tr id="user_list0"></tr>
+                                <tr id="user_list1"></tr>
+                                <tr id="user_list2"></tr>
+                                <tr id="user_list3"></tr>
+                                <tr id="user_list4"></tr>
+                                <tr id="user_list5"></tr>
+                                <tr id="user_list6"></tr>
+                                <tr id="user_list7"></tr>
+                                <tr id="user_list8"></tr>
+                                <tr id="user_list9"></tr>            
+
+                    </tbody>
+                  </table>                    
                 <div id="room_type"></div>
-                </div>
-                </div>
+
                 <div class="row"> 
                 <div id="graph-container"></div>
                 </div>
-                </div>
+                
 
 
             </div>
-        </div>
-    </div>
+
 
                 <!-- footer content -->
 
@@ -533,6 +537,7 @@
     function showType(typet){
         type = typet  
         if(type==1) getCentrality(room,type);
+        if(type==2) getBetweenness(room,type);
         if(type==3) getClosesness(room,type);
        // $('#tag').append("<button type='button' id='bangrak' class='btn btn-primary btn-sm'>"+room+"</button>");
     }
@@ -552,6 +557,7 @@
 
     <!--draw graph !! -->
     <script type="text/javascript" src="order_centrality.js"></script>
+    <script type="text/javascript" src="order_betweenness.js"></script>
     <script type="text/javascript" src="order_closesness.js"></script>
     <script type="text/javascript" src="egograph.js"></script>
     <!--<script type="text/javascript" src="drawgraph.js"></script>-->

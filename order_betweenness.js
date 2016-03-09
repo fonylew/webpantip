@@ -1,10 +1,10 @@
-    function getCentrality(room,type){
+    function getBetweenness(room,type){
     alert(room+" "+type);
          var g = {
             nodes: [],
             edges: []
         }
-        var data,d_cen,d_bet,d_close ;
+        var data ;
 
        var colors = [
       '#FFA000',//yellow 
@@ -25,7 +25,7 @@
 
     sigma.neo4j.cypher(
             { url: 'http://104.197.136.113:7474', user: 'neo4j', password: 'root' },
-            'match (u:User)-[:POSTED]->(p:Topic)<-[r:REPLIED]-(),(p:Topic)-[c:CLASSED]->(g:Room{name: "'+room+'"}) return u,p,count(r) as degreeScore order by degreeScore desc limit 10;',
+            'match (u:User) return u order by u.betweenness_centrality desc limit 10;',
            s,//match (u:User)-[:POSTED]->(p:Topic)<-[r:REPLIED]-(),(p:Topic)-[c:CLASSED]->(g:Room{name: "'+room+'"}) return u,p,count(r) as DegreeScore order by DegreeScore desc limit 10;
             function() {
 
@@ -34,10 +34,6 @@
                 nodes = s.graph.nodes(),
                 lenN = nodes.length;
                 data = new Array(lenN);
-                d_close = new Array(lenN);
-                d_bet = new Array(lenN);
-                d_cen = new Array(lenN);
-
                 for (i = 0; i < lenN; i++) {
                     nodes[i].x = Math.random();
                     nodes[i].y = Math.random();                    
@@ -46,11 +42,8 @@
                       nodes[i].color = colors[0];
                       nodes[i].label = nodes[i].neo4j_data['id'];
                       data[i] = nodes[i].label;
-                      d_close[i] = nodes[i].neo4j_data['betweenness_centrality'];
-                      d_cen[i] = nodes[i].neo4j_data['betweenness_centrality'];
-                      d_bet[i] = nodes[i].neo4j_data['betweenness_centrality'];
-                      console.log(d_close[i]);
                       console.log(nodes[i].label +" User");
+                      console.log(nodes[i].neo4j_DegreeScore);
                     } 
               
                     if(nodes[i].neo4j_labels == "Topic"){
@@ -100,8 +93,7 @@
               /*  setTimeout(function () {
                 s.killForceAtlas2();
                       }, 1800);*/
-              senthataToArrayCentrality(data,d_cen,d_bet,d_close);
-              console.log("senthataToArrayCentrality");
+              sentDataToArray(data);
             }
     );
 
@@ -127,16 +119,12 @@
     $('#user_list'+i+'').append(data[i]);
     }*/
     $('#room_type').append(room+" "+type);
-
 }
-function senthataToArrayCentrality(data,d_cen,d_bet,d_close){
-    console.log("centraility.js");
+function sentDataToArray(data){
+  console.log("order_betweenness.js");
      for(var i = 0 ; i < 10 ;i++) {
-    $('#user_list'+i+'').append('<th><a href="http://pantip.com/profile/'+data[i]+'">'+data[i]+'</a></th>\
-    <th><input id="huser_list'+i+'" type="hidden" value ="'+data[i]+'"></input><button  onclick=\"sendUser('+i+')\"> view graph </button></th>\
-    <th>'+d_cen[i]+'</th>\
-    <th>'+d_bet[i]+'</th>\
-    <th>'+d_close[i]+'</th>\
-    ');
+    $('#user_list'+i+'').append('<a href="http://pantip.com/profile/'+data[i]+'">'+data[i]+'</a> <button  onclick=\"sendUser('+i+')\"> view graph </button>\
+    <input id="huser_list'+i+'" type="hidden" value ="'+data[i]+'"></input>');
   }
 }
+
