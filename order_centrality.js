@@ -132,7 +132,7 @@
 function senthataToArrayCentrality(data,d_cen,d_bet,d_close){
     console.log("centraility.js");
      for(var i = 0 ; i < 10 ;i++) {
-    $('#user_list'+i+'').append('<th><a href="http://pantip.com/profile/'+data[i]+'">'+data[i]+'</a></th>\
+    $('#user_list'+i+'').append('<th><a href="http://pantip.com/profile/'+data[i]+'" target="_blank">'+data[i]+'</a></th>\
     <th><input id="huser_list'+i+'" type="hidden" value ="'+data[i]+'"></input><button  onclick=\"sendUser('+i+')\"> view graph </button></th>\
     <th>'+d_cen[i]+'</th>\
     <th>'+d_bet[i]+'</th>\
