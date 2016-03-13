@@ -73,7 +73,7 @@ function createEgoGraph(user){
                 for (i = 0; i < lenN; i++) {
                     nodes[i].x = Math.random();
                     nodes[i].y = Math.random();                    
-                    if(nodes[i].neo4j_labels == "User") {
+                    if(nodes[i].neo4j_labels[0] == "User") {
                       nodes[i].color = colors[0];
                       data[i] = nodes[i].label;
                       nodes[i].size = s.graph.degree(nodes[i].id);
@@ -82,7 +82,7 @@ function createEgoGraph(user){
                       //console.log(nodes[i].label +" User222222");
                     } 
               
-                  if(nodes[i].neo4j_labels == "Topic"){
+                  if(nodes[i].neo4j_labels[0] == "Topic"){
                     //nodes[i].color = colors[1];
                     var room_data = nodes[i].neo4j_data['room'];
                     console.log(nodes[i].neo4j_data);
@@ -195,9 +195,23 @@ function createEgoGraph(user){
 
               //show node whent hover
               s.bind('overNode clickNode doubleClickNode rightClickNode', function(e) {
-                console.log(e.type, e.data.node.label, e.data.node.neo4j_data['id']);
+                console.log(e.type, e.data.node.label, e.data.node.neo4j_labels[0]);
                 $("#box").show();
-                $('#box').append(e.data.node.neo4j_data['id']);
+                if(e.data.node.neo4j_labels[0] == "User"){
+                $('#box').append('id : '+e.data.node.neo4j_data['id']+'<br>\
+                  closeness :  '+e.data.node.neo4j_data['closeness_centrality']+'<br>\
+                  degree : '+e.data.node.neo4j_data['degree']+'<br>\
+                  betweenness : '+e.data.node.neo4j_data['betweenness_centrality']+'\
+                  ');
+                }
+                if(e.data.node.neo4j_labels[0] == "Topic"){
+                  $('#box').append('id :  '+e.data.node.neo4j_data['id']+'<br>\
+                  emo : '+e.data.node.neo4j_data['emo']+'<br>\
+                  like : '+e.data.node.neo4j_data['like']+'<br>\
+                  room : '+e.data.node.neo4j_data['room']+'<br>\
+                  timestamp : '+e.data.node.neo4j_data['timestamp']+'\
+                  ');
+                }
               });
               s.bind('outNode', function(e) {
                 console.log("hello");
