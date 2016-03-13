@@ -78,7 +78,7 @@ function createEgoGraph(user){
                       data[i] = nodes[i].label;
                       nodes[i].size = s.graph.degree(nodes[i].id);
                       nodes[i].borderColor = '#000000';
-                      nodes[i].borderWidth = 3;
+                      nodes[i].borderWidth = 4;
                       //console.log(nodes[i].label +" User222222");
                     } 
               
@@ -86,6 +86,7 @@ function createEgoGraph(user){
                     //nodes[i].color = colors[1];
                     var room_data = nodes[i].neo4j_data['room'];
                     console.log(nodes[i].neo4j_data);
+                    nodes[i].size = s.graph.degree(nodes[i].id);
                     var dot = room_data.search(".");
                     if(dot != -1){
                       var room_array = room_data.split(".");
@@ -176,6 +177,20 @@ function createEgoGraph(user){
             }
     );
 
+              // Initialize the dragNodes plugin:
+              var dragListener = sigma.plugins.dragNodes(s, s.renderers[0]);
 
+              dragListener.bind('startdrag', function(event) {
+                console.log(event);
+              });
+              dragListener.bind('drag', function(event) {
+                console.log(event);
+              });
+              dragListener.bind('drop', function(event) {
+                console.log(event);
+              });
+              dragListener.bind('dragend', function(event) {
+                console.log(event);
+              });
 
 }
