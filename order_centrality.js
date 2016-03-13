@@ -46,8 +46,8 @@
                       nodes[i].color = colors[0];
                       nodes[i].label = nodes[i].neo4j_data['id'];
                       data[i] = nodes[i].label;
-                      d_close[i] = nodes[i].neo4j_data['betweenness_centrality'];
-                      d_cen[i] = nodes[i].neo4j_data['betweenness_centrality'];
+                      d_close[i] = nodes[i].neo4j_data['closeness_centrality'];
+                      d_cen[i] = nodes[i].neo4j_data['degree'];
                       d_bet[i] = nodes[i].neo4j_data['betweenness_centrality'];
                       console.log(d_close[i]);
                       console.log(nodes[i].label +" User");
