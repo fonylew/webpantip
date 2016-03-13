@@ -426,24 +426,45 @@
                 margin: auto;
                 display: none;
                 }
-                #graph-container2 {
-                height: 600px;
-                width: 1245px;
-                margin: auto;
-                display: inline-block;
-                background-color: #eeeeee;
-                }
                 #graph{
                 max-width: 100%;
                 height: 600px;
                 border-style: solid;
                 border-width: 1px;
+                position: relative;
                 }
-                
+                #graph-container2 {
+                /*height: 600px;
+                width: 1245px;*/
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: #eeeeee;
+                z-index: 1;
+                }
+
+                #box{
+                width: 400px;
+                height: 200px;
+                z-index: 10;
+                margin-top: 10px;
+                margin-right: 10px;
+                padding: 10px;
+                background-color: #ffffff;
+                position: relative;
+                float: right;
+                opacity: 0.5;
+                border-style: dotted;
+                border-width: 1px;
+                }
+
                  </style>
                 <div class="row">
                 <div id="graph">  
                 <div id="graph-container2"></div>
+                <div id="box">Please select room then click view graph!!</div>
                 </div>
                 </div>
                 <br>
@@ -557,7 +578,7 @@
     function sendUser(user){
         var userId = document.getElementById("huser_list"+user).value;
         $('#graph-container').remove(); 
-        $('#graph').html('<div id="graph-container2" class="col-md-8" ></div>'); 
+        $('#graph').html('<div id="graph-container2"></div><div id="box">Please select room then click view graph!!</div>'); 
         createEgoGraph(userId);
     }
 

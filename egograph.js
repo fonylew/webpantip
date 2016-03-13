@@ -193,4 +193,16 @@ function createEgoGraph(user){
                 console.log(event);
               });
 
+              //show node whent hover
+              s.bind('overNode clickNode doubleClickNode rightClickNode', function(e) {
+                console.log(e.type, e.data.node.label, e.data.node.neo4j_data['id']);
+                $("#box").show();
+                $('#box').append(e.data.node.neo4j_data['id']);
+              });
+              s.bind('outNode', function(e) {
+                console.log("hello");
+                $("#box").hide();
+                $('#box').empty(); 
+              });
+
 }
