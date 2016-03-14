@@ -12,41 +12,39 @@ function createEgoGraph(user){
       '#00BCD4',//light blue room
       '#FF5252',// red tag
       //room
-      '#93B83D',//art green light
-      '#66CCAD',//bangrak blue light
-      '#866ACD',//beauty purple
-      '#C4884F',//blueplanet orange light
-      '#BB3E41',//camera pink rad rad
-      '#6E3126',//cartoon brown pink
-      '#9CDED2',//chalermkrung blue light
-      '#2B7B7D',//chalermthai turquoise
-      '#858FD5',//family light puple
-      '#241F5B',//food blue dark
-      '#D0C976',//gallery yellow light
-      '#CCA26B',//greenzone orange light light
-      '#1F4417',//home green dark dark
-      '#CF7285',//horoscope pink
-      '#316190',//jatujak blue
-      '#B3603D',//klaibann orange dark
-      '#862D2E',//library pink dark
-      '#8437A4',//lumpini purple dark
-      '#B03B7D',//mbk pink purple dark
-      '#3C78B4',//pantip blue sky
-      '#323A95',//rajdumnern blue
-      '#337E99',//ratchada blue light but dark
-      '#D19C75',//region meat
-      '#824B2B',//religious brown meat
-      '#6B822B',//siam green hourse shit
-      '#C15644',//siliconvalley pink nude
-      '#90DA95',//silom turquoise light
-      '#3DB841',//sinthorn green light nude
-      '#3792A4',//social blue light nude
-      '#672B82',//supachalasai purple blue dark
-      '#9AD47D',//tvshow green very light light
-      '#6A98CD',//wahkor blue nude light
-      '#291132'//writer purple blue very dark
-
-
+      '#8437A4',//art green light
+      '#B03B7D',//bangrak blue light
+      '#3C78B4',//beauty purple
+      '#323A95',//blueplanet orange light
+      '#337E99',//camera pink rad rad
+      '#D19C75',//cartoon brown pink
+      '#824B2B',//chalermkrung blue light
+      '#6B822B',//chalermthai turquoise
+      '#C15644',//family light puple
+      '#90DA95',//food blue dark
+      '#3DB841',//gallery yellow light
+      '#3792A4',//greenzone orange light light
+      '#672B82',//home green dark dark
+      '#9AD47D',//horoscope pink
+      '#6A98CD',//jatujak blue
+      '#291132',//klaibann orange dark
+      '#93B83D',//library pink dark
+      '#66CCAD',//lumpini purple dark
+      '#866ACD',//mbk pink purple dark
+      '#C4884F',//pantip blue sky
+      '#BB3E41',//rajdumnern blue
+      '#6E3126',//ratchada blue light but dark
+      '#9CDED2',//region meat
+      '#2B7B7D',//religious brown meat
+      '#858FD5',//siam green hourse shit
+      '#241F5B',//siliconvalley pink nude
+      '#D0C976',//silom turquoise light
+      '#CCA26B',//sinthorn green light nude
+      '#1F4417',//social blue light nude
+      '#CF7285',//supachalasai purple blue dark
+      '#316190',//tvshow green very light light
+      '#B3603D',//wahkor blue nude light
+      '#862D2E'//writer purple blue very dark
     ];
     var s = new sigma({
       graph: g,
@@ -198,7 +196,7 @@ function createEgoGraph(user){
                 console.log(e.type, e.data.node.label, e.data.node.neo4j_labels[0]);
                 $("#box").show();
                 if(e.data.node.neo4j_labels[0] == "User"){
-                $('#box').append('id : '+e.data.node.neo4j_data['id']+'<br>\
+                $('#box').append('id : ป'+e.data.node.neo4j_data['id']+'<br>\
                   closeness :  '+e.data.node.neo4j_data['closeness_centrality']+'<br>\
                   degree : '+e.data.node.neo4j_data['degree']+'<br>\
                   betweenness : '+e.data.node.neo4j_data['betweenness_centrality']+'\
