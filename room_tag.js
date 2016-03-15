@@ -31,6 +31,6 @@ $('#room').append("<button type='button' id='art' class='btn btn-primary btn-sm'
 	<button type='button' id='tvshow' class='btn btn-primary btn-sm' onclick=\"showTagFromRoom('"+"tvshow"+"')\">บางขุนพรหม</button>\
 	<button type='button' id='wahkor' class='btn btn-primary btn-sm' onclick=\"showTagFromRoom('"+"wahkor"+"')\">หว้ากอ</button>\
 	<button type='button' id='writer' class='btn btn-primary btn-sm' onclick=\"showTagFromRoom('"+"writer"+"')\">ถนนนักเขียน</button><br>\
-	<div class='col-md-offset-10'><button type='button' id='hideroom' class='btn btn-success btn-sm'>hide</button></div>\
 	");
+//	<div class='col-md-offset-10'><button type='button' id='hideroom' class='btn btn-success btn-sm'>hide</button></div>\
 

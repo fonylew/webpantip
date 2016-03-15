@@ -1,3 +1,56 @@
+/*--------*/
+
+/*.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}*/
+
+button.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+
+button.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #66c6dd;
+}
+
+button.btn-warning {
+    color: #224400;
+}
+
+/*button.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+} 
+ 
+button.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+button.btn-primary.outline {
+    border: 2px solid #0099cc;
+    color: #0099cc;
+}
+button.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+    color: #33a6cc;
+    border-color: #33a6cc;
+}
+button.btn-primary.outline:active, .btn-primary.outline.active {
+    border-color: #007299;
+    color: #007299;
+    box-shadow: none;
+}*/
+
+button.btn-primary:focus {
+  color: #ffffff; 
+  background-color: #a0a0FF; 
+  border-color: #494F57;
+}
+/*--------*/
+
 body.nav-sm .container.body .left_col {
     width: 70px;
     padding: 0;

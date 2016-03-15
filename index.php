@@ -2,19 +2,24 @@
 
 <script>
     $(document).ready(function(){
-    $("#showRoom").click(function(){
         $("#room").show();
+        $("#showRoom").click(function(){
+            $("#room").toggle();
+        });
+        // $("#room").show();
+        // $("#showRoom").click(function(){
+        //     $("#room").show();
+        // });
+        // $("#hideroom").click(function(){
+        //     $("#room").hide();
+        // });
+        // $("#showTag").click(function(){
+        //     $("#tag").show();
+        // });
+        // $("#hidetag").click(function(){
+        //     $("#tag").hide();
+        // });
     });
-    $("#hideroom").click(function(){
-        $("#room").hide();
-    });
-    $("#showTag").click(function(){
-        $("#tag").show();
-    });
-    $("#hidetag").click(function(){
-        $("#tag").hide();
-    });
-});
     </script>
 </head>
 
@@ -26,7 +31,7 @@
             <div class="right_col" role="main">
             <div>   
             <button type="button" id="showRoom" class="btn btn-success btn-lg">Room</button>
-            <div id="room" style="display:none"></div>
+            <div id="room"></div>
 
             </div>
 
