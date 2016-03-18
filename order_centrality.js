@@ -4,7 +4,10 @@
             nodes: [],
             edges: []
         }
-        var data,d_cen,d_bet,d_close ;
+        var data = new Array(10);
+        for (var i = 0; i < 10; i++) {
+          data[i] = new Array(4);
+        }
 
        var colors = [
       '#FFA000',//yellow 
@@ -25,7 +28,7 @@
 
     sigma.neo4j.cypher(
             { url: 'http://104.197.136.113:7474', user: 'neo4j', password: 'root' },
-            'match (u:User)-[:POSTED]->(p:Topic)<-[r:REPLIED]-(),(p:Topic)-[c:CLASSED]->(g:Room{name: "'+room+'"}) return u,p,count(r) as degreeScore order by degreeScore desc limit 10;',
+            'MATCH (n:User)-[:POSTED]->()-[c:CLASSED]->(g:Room{name: "'+room+'"}) WITH count(*) as idCount,n.id as nid,n.degree as ndeg,n as user RETURN nid,idCount,ndeg,user order by ndeg desc LIMIT 10;',
            s,//match (u:User)-[:POSTED]->(p:Topic)<-[r:REPLIED]-(),(p:Topic)-[c:CLASSED]->(g:Room{name: "'+room+'"}) return u,p,count(r) as DegreeScore order by DegreeScore desc limit 10;
             function() {
 
@@ -33,26 +36,29 @@
                 var i,
                 nodes = s.graph.nodes(),
                 lenN = nodes.length;
-                data = new Array(lenN);
-                d_close = new Array(lenN);
-                d_bet = new Array(lenN);
-                d_cen = new Array(lenN);
+
 
                 for (i = 0; i < lenN; i++) {
+                    
                     nodes[i].x = Math.random();
                     nodes[i].y = Math.random();                    
-                    nodes[i].size = s.graph.degree(nodes[i].id)+10;
+                    nodes[i].size = nodes[i].neo4j_data['degree'];
+                    //console.log(nodes[i].neo4j_labels);
                     if(nodes[i].neo4j_labels == "User") {
                       nodes[i].color = colors[0];
                       nodes[i].label = nodes[i].neo4j_data['id'];
-                      data[i] = nodes[i].label;
-                      d_close[i] = nodes[i].neo4j_data['closeness_centrality'];
-                      d_cen[i] = nodes[i].neo4j_data['degree'];
-                      d_bet[i] = nodes[i].neo4j_data['betweenness_centrality'];
-                      console.log(d_close[i]);
-                      console.log(nodes[i].label +" User");
+
+                      data[i][0] = nodes[i].label;
+                      data[i][1] = nodes[i].neo4j_data['degree'];
+                      data[i][2] = nodes[i].neo4j_data['betweenness_centrality'];
+                      data[i][3] = nodes[i].neo4j_data['closeness_centrality'];
+                     // console.log(d_close[i]);
+                    // console.log("User "+data[i][0]);
+                    //  console.log("User centraility "+data[i][1]);
+
+
                     } 
-              
+
                     if(nodes[i].neo4j_labels == "Topic"){
                      nodes[i].color = colors[1];
                      nodes[i].label = nodes[i].neo4j_data['id'];
@@ -100,10 +106,16 @@
               /*  setTimeout(function () {
                 s.killForceAtlas2();
                       }, 1800);*/
-              senthataToArrayCentrality(data,d_cen,d_bet,d_close);
+              
+              data.sort(function(a,b,c,d) {
+                        return b[1]-a[1]
+                      });
+              sentdataToArrayCentrality(data);
+              console.log(data);
               console.log("senthataToArrayCentrality");
             }
     );
+
 
 
     // Calling neo4j to get all its relationship type
@@ -129,14 +141,14 @@
     $('#room_type').append(room+" "+type);
 
 }
-function senthataToArrayCentrality(data,d_cen,d_bet,d_close){
+function sentdataToArrayCentrality(data){
     console.log("centraility.js");
      for(var i = 0 ; i < 10 ;i++) {
-    $('#user_list'+i+'').append('<th><a href="http://pantip.com/profile/'+data[i]+'" target="_blank">'+data[i]+'</a></th>\
-    <th><input id="huser_list'+i+'" type="hidden" value ="'+data[i]+'"></input><button  onclick=\"sendUser('+i+')\"> view graph </button></th>\
-    <th>'+d_cen[i]+'</th>\
-    <th>'+d_bet[i]+'</th>\
-    <th>'+d_close[i]+'</th>\
+    $('#user_list'+i+'').append('<th><a href="http://pantip.com/profile/'+data[i][0]+'" target="_blank">'+data[i][0]+'</a></th>\
+    <th><input id="huser_list'+i+'" type="hidden" value ="'+data[i][0]+'"></input><button  onclick=\"sendUser('+i+','+1+')\"> view graph </button></th>\
+    <th style="background-color:#fff59e">'+data[i][1]+'</th>\
+    <th>'+data[i][2]+'</th>\
+    <th>'+data[i][3]+'</th>\
     ');
   }
 }

@@ -1,4 +1,4 @@
-function createEgoGraph(user){
+function createEgoGraph(user,type){
     console.log("createEgo already !!")
          var g = {
             nodes: [],
@@ -73,8 +73,9 @@ function createEgoGraph(user){
                     nodes[i].y = Math.random();                    
                     if(nodes[i].neo4j_labels[0] == "User") {
                       nodes[i].color = colors[0];
+                      nodes[i].label = nodes[i].neo4j_data['id'];
                       data[i] = nodes[i].label;
-                      nodes[i].size = s.graph.degree(nodes[i].id);
+                      nodes[i].size = nodes[i].neo4j_data['degree'];
                       nodes[i].borderColor = '#000000';
                       nodes[i].borderWidth = 4;
                       //console.log(nodes[i].label +" User222222");
@@ -196,7 +197,7 @@ function createEgoGraph(user){
                 console.log(e.type, e.data.node.label, e.data.node.neo4j_labels[0]);
                 $("#box").show();
                 if(e.data.node.neo4j_labels[0] == "User"){
-                $('#box').append('id : ป'+e.data.node.neo4j_data['id']+'<br>\
+                $('#box').append('id : '+e.data.node.neo4j_data['id']+'<br>\
                   closeness :  '+e.data.node.neo4j_data['closeness_centrality']+'<br>\
                   degree : '+e.data.node.neo4j_data['degree']+'<br>\
                   betweenness : '+e.data.node.neo4j_data['betweenness_centrality']+'\
