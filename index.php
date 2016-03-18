@@ -20,6 +20,8 @@
         //     $("#tag").hide();
         // });
     });
+
+
     </script>
 </head>
 
@@ -84,8 +86,27 @@
                 border-style: dotted;
                 border-width: 1px;
                 }
+                .fancybox-type-iframe .fancybox-nav {
+                    width: 60px;       
+                }
 
-                 </style>
+                .fancybox-type-iframe .fancybox-nav span {
+                    visibility: visible;
+                    opacity: 0.5;
+                }
+
+                .fancybox-type-iframe .fancybox-nav:hover span {
+                    opacity: 1;
+                }
+
+                .fancybox-type-iframe .fancybox-next {
+                    right: -60px;
+                }
+
+                .fancybox-type-iframe .fancybox-prev {
+                    left: -60px;
+                }
+                                 </style>
                 <div class="row">
                 <div id="graph">  
                 <div id="graph-container2"></div>
@@ -171,13 +192,23 @@
     function refresh(){
         location.reload();
     }
-    function sendUser(user){
+    function sendUser(user,type){
         var userId = document.getElementById("huser_list"+user).value;
+        console.log(type+"asdfsadfsda");
         $('#graph-container').remove(); 
         $('#graph').html('<div id="graph-container2"></div><div id="box">Please select room then click view graph!!</div>'); 
-        createEgoGraph(userId);
+        createEgoGraph(userId,type);
     }
-
+    $(".fancybox").fancybox({
+        afterLoad: function() {
+            this.title = '<a target="_blank" href="' + this.href + '">open in new tab</a> ' + this.title;
+        },
+        helpers : {
+            title: {
+                type: 'inside'
+            }
+        }
+    });
 
   </script>
 
