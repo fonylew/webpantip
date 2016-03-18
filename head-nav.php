@@ -125,8 +125,8 @@
                         <div class="profile_info">
                             <span>Welcome,</span>
                             <h2>Anthony Fernando</h2>
-                        </div-->
-                    </div>
+                        </div>
+                    </div-->
                     <!-- /menu prile quick info -->
 
                     <br />
@@ -136,15 +136,15 @@
 
                         <div class="menu_section">
                             <ul class="nav side-menu">
-                                <li><a><i class="fa fa-bullhorn"></i> Key Player </a>
+                                <li><a href="index.php"><i class="fa fa-bullhorn"></i> Key Player </a>
                                 </li>
-                                <li><a><i class="fa fa-pie-chart"></i> Pantip Stat</a>
+                                <li><a href="index.php#powerlaw"><i class="fa fa-bar-chart-o"></i> Pantip Stat</a>
                                 </li>
-                                <li><a><i class="fa fa-bar-chart-o"></i> Power-Law </a>
+                                <li><a href="index.php#popular"><i class="fa fa-comments"></i> Popular Topics </a>
                                 </li>
-                                <li><a><i class="fa fa-github"></i> Source Code </a>
+                                <li><a href="index.php#source"><i class="fa fa-github"></i> Source Code </a>
                                 </li>
-                                <li><a><i class="fa fa-users"></i> About Us </a>
+                                <li><a href="index.php#about"><i class="fa fa-users"></i> About Us </a>
                                 </li>
                             </ul>
                         </div>
@@ -152,7 +152,7 @@
                     <!-- /sidebar menu -->
 
                     <!-- /menu footer buttons -->
-                    <div class="sidebar-footer hidden-small">
+                    <!--div class="sidebar-footer hidden-small">
                         <a data-toggle="tooltip" data-placement="top" title="Settings">
                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                         </a>
@@ -165,7 +165,7 @@
                         <a data-toggle="tooltip" data-placement="top" title="Logout">
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         </a>
-                    </div>
+                    </div-->
                     <!-- /menu footer buttons -->
                 </div>
             </div>
@@ -183,9 +183,9 @@
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     <img src="images/img.jpg" alt="">Pantip's Key Player Analysis
-                                    <span class=" fa fa-angle-down"></span>
+                                    <!--span class=" fa fa-angle-down"></span-->
                                 </a>
-                                <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+                                <!--ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
                                     <li><a href="javascript:;">  Profile</a>
                                     </li>
                                     <li>
@@ -199,7 +199,7 @@
                                     </li>
                                     <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                     </li>
-                                </ul>
+                                </ul-->
                             </li>
 
 
