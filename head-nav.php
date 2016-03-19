@@ -124,6 +124,13 @@
 
     <!-- Add Media helper (this is optional) -->
     <script type="text/javascript" src="fancy/source/helpers/jquery.fancybox-media.js"></script>
+
+    <link href="lity/dist/lity.css" rel="stylesheet">
+    <script src="lity/vendor/jquery.js"></script>
+    <script src="lity/dist/lity.js"></script>
+    <?php
+    header('X-Frame-Options: GOFORIT'); 
+    ?>
 </head>
 <body class="nav-sm">
 
