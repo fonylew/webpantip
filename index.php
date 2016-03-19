@@ -21,12 +21,7 @@
         // });
     });
 
-
     </script>
-</head>
-
-
-
             <!-- page content -->
 
             <!-- draw graph -->
@@ -86,24 +81,24 @@
                 border-style: dotted;
                 border-width: 1px;
                 }
-                .fancybox-type-iframe .fancybox-nav {
+                .fancybox .fancybox-nav {
                     width: 60px;       
                 }
 
-                .fancybox-type-iframe .fancybox-nav span {
+                .fancybox .fancybox-nav span {
                     visibility: visible;
                     opacity: 0.5;
                 }
 
-                .fancybox-type-iframe .fancybox-nav:hover span {
+                .fancybox .fancybox-nav:hover span {
                     opacity: 1;
                 }
 
-                .fancybox-type-iframe .fancybox-next {
+                .fancybox .fancybox-next {
                     right: -60px;
                 }
 
-                .fancybox-type-iframe .fancybox-prev {
+                .fancybox .fancybox-prev {
                     left: -60px;
                 }
                                  </style>
@@ -149,8 +144,8 @@
 
                 <footer>
                     <div class="">
-                        <p class="pull-right">Gentelella Alela! a Bootstrap 3 template by <a>Kimlabs</a>. |
-                            <span class="lead"> <i class="fa fa-paw"></i> Hello !</span>
+                        <p class="pull-right">Social Network Analysis on Key Player using Pantip.com as case study. 2015&copy;
+
                         </p>
                     </div>
                     <div class="clearfix"></div>
@@ -188,6 +183,7 @@
         if(type==2) getBetweenness(room,type);
         if(type==3) getClosesness(room,type);
        // $('#tag').append("<button type='button' id='bangrak' class='btn btn-primary btn-sm'>"+room+"</button>");
+       console.log('showed type (table complete)');
     }
     function refresh(){
         location.reload();
@@ -199,16 +195,6 @@
         $('#graph').html('<div id="graph-container2"></div><div id="box">Please select room then click view graph!!</div>'); 
         createEgoGraph(userId,type);
     }
-    $(".fancybox").fancybox({
-        afterLoad: function() {
-            this.title = '<a target="_blank" href="' + this.href + '">open in new tab</a> ' + this.title;
-        },
-        helpers : {
-            title: {
-                type: 'inside'
-            }
-        }
-    });
 
   </script>
 
@@ -219,7 +205,22 @@
     <script type="text/javascript" src="order_closesness.js"></script>
     <script type="text/javascript" src="egograph.js"></script>
     <!--<script type="text/javascript" src="drawgraph.js"></script>-->
-
+    <script >
+    $(document).ready(function() {    
+        $(".fancybox").fancybox({
+            type: "iframe",
+            afterLoad: function() {
+                this.title = '<a target="_blank" href="' + this.href + '">open in new tab</a> ';
+            },
+            helpers : {
+                title: {
+                    type: 'inside'
+                }
+            }
+        });
+    });
+    console.log('fancy already');
+    </script>
    
 </body>
 

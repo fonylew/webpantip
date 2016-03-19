@@ -121,7 +121,7 @@ function sentDataToArray(data){
     console.log("centraility.js");
      for(var i = 0 ; i < 10 ;i++) {
     $('#user_list'+i+'').append('<table><tr><td>User Profile</td><td>View graph</td><td>Degree of centrality</td><td>Betweenness of centrality</td><td>Closeness of centrality</td></tr>\
-    <tr><td><a href="http://pantip.com/profile/'+data[i]+'">'+data[i]+'</a></td>\
+    <tr><td><a class="fancybox" data-fancybox-type="iframe" href="http://pantip.com/profile/'+data[i]+'">'+data[i]+' </a></td>\
     <td><button  onclick=\"sendUser('+i+')\"> view graph </button></td>\
     <td>adsfadsf</td>\
     <td>adsfasdfasdfadsfasfa</td>\

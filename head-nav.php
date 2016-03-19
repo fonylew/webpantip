@@ -88,8 +88,10 @@
 <!-- END SIGMA IMPORTS -->
 <script src="plugins/sigma.parsers.json/sigma.parsers.json.js"></script>
 <script src="plugins/sigma.layout.forceAtlas2.min.js"></script>
-<script scr ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<!--script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script-->
+<script type="text/javascript" src="fancy/lib/jquery-1.10.1.min.js"></script>
+<!--script scr ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script-->
 
 <script src="plugins/sigma.parsers.json/sigma.parsers.json.js"></script>
 <script src="plugins/sigma.parsers.cypher/sigma.parsers.cypher.js"></script>
@@ -103,25 +105,26 @@
 <script src="plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curvedArrow.js"></script>-
 -->
     <!-- Add jQuery library -->
-    <script type="text/javascript" src="fancy/lib/jquery-1.10.1.min.js"></script>
+    <!--script type="text/javascript" src="fancy/lib/jquery-1.10.1.min.js"></script-->
 
     <!-- Add mousewheel plugin (this is optional) -->
     <script type="text/javascript" src="fancy/lib/jquery.mousewheel-3.0.6.pack.js"></script>
 
     <!-- Add fancyBox main JS and CSS files -->
-    <script type="text/javascript" src="fancy/source/jquery.fancybox.js?v=2.1.5"></script>
-    <link rel="stylesheet" type="text/css" href="fancy/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+    <script type="text/javascript" src="fancy/source/jquery.fancybox.js"></script>
+    <link rel="stylesheet" type="text/css" href="fancy/source/jquery.fancybox.css" media="screen" />
 
     <!-- Add Button helper (this is optional) -->
-    <link rel="stylesheet" type="text/css" href="fancy/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
-    <script type="text/javascript" src="fancy/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+    <link rel="stylesheet" type="text/css" href="fancy/source/helpers/jquery.fancybox-buttons.css" />
+    <script type="text/javascript" src="fancy/source/helpers/jquery.fancybox-buttons.js"></script>
 
     <!-- Add Thumbnail helper (this is optional) -->
-    <link rel="stylesheet" type="text/css" href="fancy/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
-    <script type="text/javascript" src="fancy/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+    <link rel="stylesheet" type="text/css" href="fancy/source/helpers/jquery.fancybox-thumbs.css" />
+    <script type="text/javascript" src="fancy/source/helpers/jquery.fancybox-thumbs.js"></script>
 
     <!-- Add Media helper (this is optional) -->
-    <script type="text/javascript" src="fancy/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+    <script type="text/javascript" src="fancy/source/helpers/jquery.fancybox-media.js"></script>
+</head>
 <body class="nav-sm">
 
     <div class="container body">
@@ -133,7 +136,7 @@
                 <div class="left_col scroll-view">
 
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-smile-o"></i> <span>Pantip Ananlysis</span></a>
+                        <a href="index.php" class="site_title"><i class="fa fa-smile-o"></i> <span>Pantip Ananlysis</span></a>
                     </div>
                     <div class="clearfix"></div>
 
@@ -172,7 +175,7 @@
                     <!-- /sidebar menu -->
 
                     <!-- /menu footer buttons -->
-                    <!--div class="sidebar-footer hidden-small">
+                    <div class="sidebar-footer hidden-small">
                         <a data-toggle="tooltip" data-placement="top" title="Settings">
                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                         </a>
@@ -185,7 +188,7 @@
                         <a data-toggle="tooltip" data-placement="top" title="Logout">
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         </a>
-                    </div-->
+                    </div>
                     <!-- /menu footer buttons -->
                 </div>
             </div>

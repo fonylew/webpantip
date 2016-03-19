@@ -144,7 +144,7 @@
 function sentdataToArrayBetweenness(data){
     console.log("centraility.js");
      for(var i = 0 ; i < 10 ;i++) {
-    $('#user_list'+i+'').append('<th><a href="http://pantip.com/profile/'+data[i][0]+'" target="_blank">'+data[i][0]+'</a></th>\
+    $('#user_list'+i+'').append('<th><a class="fancybox" data-fancybox-type="iframe" data-fancybox-href="http://pantip.com/profile/'+data[i][0]+'" href="javascript:;">'+data[i][0]+' </a></th>\
     <th><input id="huser_list'+i+'" type="hidden" value ="'+data[i][0]+'"></input><button  onclick=\"sendUser('+i+','+1+')\"> view graph </button></th>\
     <th>'+data[i][1]+'</th>\
     <th style="background-color:#fff59e">'+data[i][2]+'</th>\
