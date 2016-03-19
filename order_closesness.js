@@ -108,7 +108,7 @@
                       }, 1800);*/
               
               data.sort(function(a,b,c,d) {
-                        return b[1]-a[1]
+                        return b[3]-a[3]
                       });
               sentdataToArrayClosesness(data);
               console.log(data);
