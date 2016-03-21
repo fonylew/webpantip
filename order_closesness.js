@@ -28,7 +28,9 @@
 
     sigma.neo4j.cypher(
             { url: 'http://104.197.136.113:7474', user: 'neo4j', password: 'root' },
-            'MATCH (n:User)-[:POSTED]->()-[c:CLASSED]->(g:Room{name: "'+room+'"}) WITH count(*) as idCount,n.id as nid,n.closeness_centrality as ndeg,n as user RETURN nid,idCount,ndeg,user order by ndeg desc LIMIT 10;',
+            'MATCH (n:User)-[p:POSTED]->(t:Topic)-[c:CLASSED]->(g:Room{name: "'+room+'"}) 
+RETURN n.id,g.name,count(*) as sum order by sum desc  LIMIT 100;',
+            //MATCH (n:User)-[:POSTED]->()-[c:CLASSED]->(g:Room{name: "'+room+'"}) WITH count(*) as idCount,n.id as nid,n.closeness_centrality as ndeg,n as user RETURN nid,idCount,ndeg,user order by ndeg desc LIMIT 10;',
            s,//match (u:User)-[:POSTED]->(p:Topic)<-[r:REPLIED]-(),(p:Topic)-[c:CLASSED]->(g:Room{name: "'+room+'"}) return u,p,count(r) as DegreeScore order by DegreeScore desc limit 10;
             function() {
 
