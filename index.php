@@ -1,11 +1,22 @@
 <?php include 'head-nav.php';?>
 
 <script>
+    var lightbox = lity();
+    $(document).on('click', '[data-lightbox]', lightbox);
+    // $(document).on('click', '[data-lightbox]', function(e){
+        //e.preventDefault();
+        // console.log('click');
+        // lightbox;
+        //console.log("click");
+        //var link = this.attr("nohref");
+        //lightbox(link);
+    // });
     $(document).ready(function(){
         $("#room").show();
         $("#showRoom").click(function(){
             $("#room").toggle();
         });
+        //lightbox('http://pantip.com');
         // $("#room").show();
         // $("#showRoom").click(function(){
         //     $("#room").show();
@@ -20,6 +31,12 @@
         //     $("#tag").hide();
         // });
     });
+
+    // $('.ality').click(function(){
+    //     console.log("click");
+    //     var link = this.attr("nohref");
+    //     lightbox(link);
+    // });
 
     </script>
             <!-- page content -->
@@ -205,7 +222,7 @@
     <script type="text/javascript" src="order_closesness.js"></script>
     <script type="text/javascript" src="egograph.js"></script>
     <!--<script type="text/javascript" src="drawgraph.js"></script>-->
-    <script >
+    <!--script >
     $(document).ready(function() {    
         $(".fancybox").fancybox({
             type: "iframe",
@@ -220,7 +237,7 @@
         });
     });
     console.log('fancy already');
-    </script>
+    </script-->
    
 </body>
 
