@@ -21,7 +21,8 @@
     </script>
 <div class="right_col" role="main">
     <div id="container">
-
+        <h1>Power-Law Distribution</h1>
+        <img src="powerlaw.png">
     </div>
 </div>
    <?php include 'footer.php';?>
