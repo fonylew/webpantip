@@ -20,10 +20,10 @@
 
     </script>
 <div class="right_col" role="main">
-    <div id="container">
+    <div class="container">
 
     </div>
-    </div>
+</div>
    <?php include 'footer.php';?>
 </body>
 
