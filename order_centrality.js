@@ -146,14 +146,29 @@
 // function to call Plumber REST API
 function table(roomname,type){
   console.log('get table');
-  var geturl='http://104.197.210.78:8000/cen?room="';
-  $.get(geturl+roomname+'"', function(data){
+  var geturl='http://104.197.210.78:8000/';
+  switch(type){
+    case 1:
+      geturl+='rep';
+      break;
+    case 2:
+      geturl+='droom';
+      break;
+    case 3:
+      geturl+='deg';
+      break;
+    case 4:
+      geturl+='bet';
+      break;
+    case 5:
+      geturl+='clo';
+      break;
+    default:
+      geturl+='cen';
+      break;
+  }
+  $.get(geturl+'?room="'+roomname+'"', function(data){
     for(var i = 0 ; i < 10 ;i++) {
-<<<<<<< HEAD
-      var closeness = data[i]['ncloseness'];
-      console.log(closeness);
-=======
->>>>>>> ae1fc01940e3d8d6b16786c08b0210895dd39390
       $('#user_list'+i+'').append('<th><a class="ality" href="http://pantip.com/profile/'+data[i]['nid']+'" data-lity>'+data[i]['nid']+' </a></th>\
       <th><input id="huser_list'+i+'" type="hidden" value ="'+data[i]['nid']+'"></input><button  onclick=\"sendUser('+i+','+1+')\"> view graph </button></th>\
       <th>'+data[i]['deg_room']+'</th>\
