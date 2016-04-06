@@ -56,13 +56,14 @@ function createEgoGraph(user,type){
           edgeLabelSize: 'proportional'
       }
     }); 
-
+    //var user12 = "629957";
+    //alert(user12);
     sigma.neo4j.cypher(
             { url: 'http://104.197.210.78:7474', user: 'neo4j', password: 'root' },
             'match (u:User{id:'+user+'})-[v:POSTED]->(p:Topic)<-[r:REPLIED]-(o:User) return u,p,o,v,r limit 3000;',
            s,//match (u:User)-[:POSTED]->(p:Topic)<-[r:REPLIED]-(),(p:Topic)-[c:CLASSED]->(g:Room{name: "'+room+'"}) return u,p,count(r) as DegreeScore order by DegreeScore desc limit 10;
             function() {
-
+            
                 console.log('Number of nodes:'+ s.graph.nodes().length);
                 var i,
                 nodes = s.graph.nodes(),
@@ -72,12 +73,17 @@ function createEgoGraph(user,type){
                     nodes[i].x = Math.random();
                     nodes[i].y = Math.random();                    
                     if(nodes[i].neo4j_labels[0] == "User") {
+                       if(nodes[i].neo4j_data['id']== user){
+                        nodes[i].color = '#000000';
+                      }else{
                       nodes[i].color = colors[0];
+                      }
                       nodes[i].label = nodes[i].neo4j_data['id'];
                       data[i] = nodes[i].label;
                       nodes[i].size = nodes[i].neo4j_data['degree'];
                       nodes[i].borderColor = '#000000';
                       nodes[i].borderWidth = 4;
+
                       //console.log(nodes[i].label +" User222222");
                     } 
               
