@@ -168,35 +168,18 @@
                             <ul class="nav side-menu">
                                 <li><a href="index.php"><i class="fa fa-bullhorn"></i> Key Player </a>
                                 </li>
-                                <li><a href="index.php#powerlaw"><i class="fa fa-bar-chart-o"></i> Pantip Stat</a>
+                                <li><a href="stat.php"><i class="fa fa-bar-chart-o"></i> Pantip Stat</a>
                                 </li>
-                                <li><a href="index.php#popular"><i class="fa fa-comments"></i> Popular Topics </a>
+                                <li><a href="topic.php"><i class="fa fa-comments"></i> Popular Topics </a>
                                 </li>
-                                <li><a href="index.php#source"><i class="fa fa-github"></i> Source Code </a>
+                                <li><a href="source.php"><i class="fa fa-github"></i> Source Code </a>
                                 </li>
-                                <li><a href="index.php#about"><i class="fa fa-users"></i> About Us </a>
+                                <li><a href="about.php"><i class="fa fa-users"></i> About Us </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <!-- /sidebar menu -->
-
-                    <!-- /menu footer buttons -->
-                    <div class="sidebar-footer hidden-small">
-                        <a data-toggle="tooltip" data-placement="top" title="Settings">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Lock">
-                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Logout">
-                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                        </a>
-                    </div>
-                    <!-- /menu footer buttons -->
                 </div>
             </div>
 

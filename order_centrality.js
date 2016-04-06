@@ -27,7 +27,7 @@
     }); 
 
     sigma.neo4j.cypher(
-            { url: 'http://104.197.136.113:7474', user: 'neo4j', password: 'root' },
+            { url: 'http://104.197.210.78:7474', user: 'neo4j', password: 'root' },
             'MATCH (n:User)-[:POSTED]->()-[c:CLASSED]->(g:Room{name: "'+room+'"}) WITH count(*) as idCount,n.id as nid,n.degree as ndeg,n as user RETURN nid,idCount,ndeg,user order by ndeg desc LIMIT 10;',
            s,//match (u:User)-[:POSTED]->(p:Topic)<-[r:REPLIED]-(),(p:Topic)-[c:CLASSED]->(g:Room{name: "'+room+'"}) return u,p,count(r) as DegreeScore order by DegreeScore desc limit 10;
             function() {
@@ -110,7 +110,8 @@
               data.sort(function(a,b,c,d) {
                         return b[1]-a[1]
                       });
-              sentdataToArrayCentrality(data);
+              //sentdataToArrayCentrality(data);
+              table(room);
               console.log(data);
               console.log("senthataToArrayCentrality");
             }
@@ -141,6 +142,26 @@
     $('#room_type').append(room+" "+type);
 
 }
+
+// function to call Plumber REST API
+function table(roomname){
+  console.log('get table');
+  var geturl='http://104.197.210.78:8000/cen?room="';
+  $.get(geturl+roomname+'"', function(data){
+    for(var i = 0 ; i < 10 ;i++) {
+      var closeness = data[i]['ncloseness'].toPrecision();
+      console.log(closeness);
+      $('#user_list'+i+'').append('<th><a class="ality" href="http://pantip.com/profile/'+data[i]['nid']+'" data-lity>'+data[i]['nid']+' </a></th>\
+      <th><input id="huser_list'+i+'" type="hidden" value ="'+data[i]['nid']+'"></input><button  onclick=\"sendUser('+i+','+1+')\"> view graph </button></th>\
+      <th style="background-color:#fff59e">'+data[i]['ndegree']+'</th>\
+      <th>'+data[i]['nbetween']+'</th>\
+      <th>'+closeness+'</th>\
+      ');
+    }
+  });
+}
+
+// old function
 function sentdataToArrayCentrality(data){
     console.log("centraility.js");
      for(var i = 0 ; i < 10 ;i++) {
