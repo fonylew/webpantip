@@ -111,7 +111,7 @@
                         return b[1]-a[1]
                       });
               //sentdataToArrayCentrality(data);
-              table(room);
+              table(room,type);
               console.log(data);
               console.log("senthataToArrayCentrality");
             }
@@ -144,25 +144,30 @@
 }
 
 // function to call Plumber REST API
-function table(roomname){
+function table(roomname,type){
   console.log('get table');
   var geturl='http://104.197.210.78:8000/cen?room="';
   $.get(geturl+roomname+'"', function(data){
     for(var i = 0 ; i < 10 ;i++) {
+<<<<<<< HEAD
       var closeness = data[i]['ncloseness'];
       console.log(closeness);
+=======
+>>>>>>> ae1fc01940e3d8d6b16786c08b0210895dd39390
       $('#user_list'+i+'').append('<th><a class="ality" href="http://pantip.com/profile/'+data[i]['nid']+'" data-lity>'+data[i]['nid']+' </a></th>\
       <th><input id="huser_list'+i+'" type="hidden" value ="'+data[i]['nid']+'"></input><button  onclick=\"sendUser('+i+','+1+')\"> view graph </button></th>\
+      <th>'+data[i]['deg_room']+'</th>\
+      <th>'+data[i]['sum']+'</th>\
       <th style="background-color:#fff59e">'+data[i]['ndegree']+'</th>\
       <th>'+data[i]['nbetween']+'</th>\
-      <th>'+closeness+'</th>\
+      <th>'+data[i]['ncloseness']+'</th>\
       ');
     }
   });
 }
 
 // old function
-function sentdataToArrayCentrality(data){
+/*function sentdataToArrayCentrality(data){
     console.log("centraility.js");
      for(var i = 0 ; i < 10 ;i++) {
     $('#user_list'+i+'').append('<th><a class="ality" href="http://pantip.com/profile/'+data[i][0]+'" data-lity>'+data[i][0]+' </a></th>\
@@ -171,7 +176,7 @@ function sentdataToArrayCentrality(data){
     <th>'+data[i][2]+'</th>\
     <th>'+data[i][3]+'</th>\
     ');
-  }
+  }*/
   // $(".fancybox").fancybox({
   //           type: "iframe",
   //           afterLoad: function() {

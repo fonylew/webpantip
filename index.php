@@ -129,7 +129,7 @@
                   <table class="table">
                     <thead>
                       <tr>
-                <th>User Profile</th><th>View graph</th><th>Degree of centrality</th><th>Betweenness of centrality</th><th>Closeness of centrality</th>
+                <th>User Profile</th><th>View graph</th><th>Number of Replies in all topics</th><th>Number of Topic in room</th><th>Degree of centrality</th><th>Betweenness of centrality</th><th>Closeness of centrality</th>
                       </tr>
                     </thead>
                     <tbody>
