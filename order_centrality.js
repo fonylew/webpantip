@@ -149,7 +149,7 @@ function table(roomname){
   var geturl='http://104.197.210.78:8000/cen?room="';
   $.get(geturl+roomname+'"', function(data){
     for(var i = 0 ; i < 10 ;i++) {
-      var closeness = data[i]['ncloseness'].toPrecision();
+      var closeness = data[i]['ncloseness'];
       console.log(closeness);
       $('#user_list'+i+'').append('<th><a class="ality" href="http://pantip.com/profile/'+data[i]['nid']+'" data-lity>'+data[i]['nid']+' </a></th>\
       <th><input id="huser_list'+i+'" type="hidden" value ="'+data[i]['nid']+'"></input><button  onclick=\"sendUser('+i+','+1+')\"> view graph </button></th>\
