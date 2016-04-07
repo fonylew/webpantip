@@ -175,7 +175,7 @@ function createEgoGraph(user,type){
                 s.startForceAtlas2(fa2config);
                 window.setTimeout(function () {
                     s.stopForceAtlas2();
-                }, (s.graph.edges().length)*24); //887node 1246edge 17000 sec
+                }, min((s.graph.edges().length)*24),16000); //887node 1246edge 17000 sec
               /*  setTimeout(function () {
                 s.killForceAtlas2();
                       }, 1800);*/

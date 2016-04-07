@@ -1,10 +1,10 @@
-    function getCentrality(room,type){
-    alert(room+" "+type);
+    function getCentrality(room,sorttype){
+    alert(room+" "+sorttype);
          var g = {
             nodes: [],
             edges: []
         }
-        var data = new Array(10);
+        var data = new Array(10); 
         for (var i = 0; i < 10; i++) {
           data[i] = new Array(4);
         }
@@ -111,7 +111,7 @@
                         return b[1]-a[1]
                       });
               //sentdataToArrayCentrality(data);
-              table(room,type);
+              table(room,sorttype);
               console.log(data);
               console.log("senthataToArrayCentrality");
             }
@@ -121,7 +121,7 @@
 
     // Calling neo4j to get all its relationship type
     sigma.neo4j.getTypes(
-            { url: 'http://104.197.136.113:7474', user:'neo4j', password:'root' },
+            { url: 'http://104.197.210.78:7474', user:'neo4j', password:'root' },
             function(types) {
                 console.log("Relationship types " + types);
             }
@@ -129,7 +129,7 @@
 
     // Calling neo4j to get all its node label
     sigma.neo4j.getLabels(
-            { url: 'http://104.197.136.113:7474', user:'neo4j', password:'root' },
+            { url: 'http://104.197.210.78:7474', user:'neo4j', password:'root' },
             function(labels) {
                 console.log("Node labels " + labels);
             }
@@ -139,7 +139,7 @@
     for(var i = 0 ; i < 10 ;i++) {
     $('#user_list'+i+'').append(data[i]);
     }*/
-    $('#room_type').append(room+" "+type);
+    $('#room_type').append(room+" "+sorttype);
 
 }
 
@@ -147,35 +147,43 @@
 function table(roomname,type){
   console.log('get table');
   var geturl='http://104.197.210.78:8000/';
+  var bgcolor=' style="background-color:#fff59e"';
+  var bg1="",bg2="",bg3="",bg4="",bg5="";
   switch(type){
     case 1:
       geturl+='rep';
+      bg1=bgcolor;
       break;
     case 2:
       geturl+='droom';
+      bg2=bgcolor;
       break;
     case 3:
       geturl+='deg';
+      bg3=bgcolor;
       break;
     case 4:
       geturl+='bet';
+      bg4=bgcolor;
       break;
     case 5:
       geturl+='clo';
+      bg5=bgcolor;
       break;
     default:
       geturl+='cen';
+      bg1=bgcolor;
       break;
   }
   $.get(geturl+'?room="'+roomname+'"', function(data){
     for(var i = 0 ; i < 10 ;i++) {
       $('#user_list'+i+'').append('<th><a class="ality" href="http://pantip.com/profile/'+data[i]['nid']+'" data-lity>'+data[i]['nid']+' </a></th>\
       <th><input id="huser_list'+i+'" type="hidden" value ="'+data[i]['nid']+'"></input><button  onclick=\"sendUser('+i+','+1+')\"> view graph </button></th>\
-      <th>'+data[i]['deg_room']+'</th>\
-      <th>'+data[i]['sum']+'</th>\
-      <th style="background-color:#fff59e">'+data[i]['ndegree']+'</th>\
-      <th>'+data[i]['nbetween']+'</th>\
-      <th>'+data[i]['ncloseness']+'</th>\
+      <th'+bg1+'>'+data[i]['deg_room']+'</th>\
+      <th'+bg2+'>'+data[i]['sum']+'</th>\
+      <th'+bg3+'>'+data[i]['ndegree']+'</th>\
+      <th'+bg4+'>'+data[i]['nbetween']+'</th>\
+      <th'+bg5+'>'+data[i]['ncloseness']+'</th>\
       ');
     }
   });
@@ -203,4 +211,4 @@ function table(roomname,type){
   //               }
   //           }
   //       });
-}
+// }

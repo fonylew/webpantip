@@ -58,6 +58,34 @@
             </div>   
 
                 <div id="container">
+
+                <table class="table">
+                    <thead>
+                      <tr>
+                <th>User Profile</th>
+                <th>View graph</th>
+                <th><div class="btn" onclick="showType(1)">Number of Replies in all topics</div></th>
+                <th><div class="btn" onclick="showType(2)">Number of Topic in room</div></th>
+                <th><div class="btn" onclick="showType(3)">Degree of centrality</div></th>
+                <th><div class="btn" onclick="showType(4)">Betweenness of centrality</div></th>
+                <th><div class="btn" onclick="showType(5)">Closeness of centrality</div></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                                <tr id="user_list0"></tr>
+                                <tr id="user_list1"></tr>
+                                <tr id="user_list2"></tr>
+                                <tr id="user_list3"></tr>
+                                <tr id="user_list4"></tr>
+                                <tr id="user_list5"></tr>
+                                <tr id="user_list6"></tr>
+                                <tr id="user_list7"></tr>
+                                <tr id="user_list8"></tr>
+                                <tr id="user_list9"></tr>            
+
+                    </tbody>
+                  </table>                    
+                <div id="room_type"></div>
                 <style>
                 #graph-container {
                 max-width: 100%;
@@ -126,27 +154,7 @@
                 </div>
                 </div>
                 <br>
-                  <table class="table">
-                    <thead>
-                      <tr>
-                <th>User Profile</th><th>View graph</th><th>Number of Replies in all topics</th><th>Number of Topic in room</th><th>Degree of centrality</th><th>Betweenness of centrality</th><th>Closeness of centrality</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                                <tr id="user_list0"></tr>
-                                <tr id="user_list1"></tr>
-                                <tr id="user_list2"></tr>
-                                <tr id="user_list3"></tr>
-                                <tr id="user_list4"></tr>
-                                <tr id="user_list5"></tr>
-                                <tr id="user_list6"></tr>
-                                <tr id="user_list7"></tr>
-                                <tr id="user_list8"></tr>
-                                <tr id="user_list9"></tr>            
-
-                    </tbody>
-                  </table>                    
-                <div id="room_type"></div>
+                  
 
                 <div class="row"> 
                 <div id="graph-container"></div>
@@ -196,9 +204,9 @@
     }
     function showType(typet){
         type = typet  
-        if(type==1) getCentrality(room,type);
-        if(type==2) getBetweenness(room,type);
-        if(type==3) getClosesness(room,type);
+        if(type==1) getCentrality(room,1);
+        if(type==2) getCentrality(room,2);
+        if(type==3) getCentrality(room,3);
        // $('#tag').append("<button type='button' id='bangrak' class='btn btn-primary btn-sm'>"+room+"</button>");
        console.log('showed type (table complete)');
     }
