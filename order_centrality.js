@@ -1,5 +1,5 @@
     function getCentrality(room,sorttype){
-    alert(room+" "+sorttype);
+    //alert(room+" "+sorttype);
          var g = {
             nodes: [],
             edges: []

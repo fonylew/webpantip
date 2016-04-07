@@ -51,10 +51,10 @@
 
 
             <div  style="text-align:center">
-            <button type="button" value="1" onclick="showType(1)" class="btn btn-warning btn-md">Degree of centrality</button>
+            <!--button type="button" value="1" onclick="showType(1)" class="btn btn-warning btn-md">Degree of centrality</button>
             <button type="button" value="2" onclick="showType(2)" class="btn btn-warning btn-md">Betweenness of centrality</button>
             <button type="button" value="3" onclick="showType(3)" class="btn btn-warning btn-md">Closesness of centrality</button>
-            <button type="button" value="3" onclick="refresh()" class="btn btn-warning btn-sm">refresh</button>            
+            <button type="button" value="3" onclick="refresh()" class="btn btn-warning btn-sm">refresh</button-->            
             </div>   
 
                 <div id="container">
@@ -62,13 +62,13 @@
                 <table class="table">
                     <thead>
                       <tr>
-                <th>User Profile</th>
-                <th>View graph</th>
-                <th><div class="btn" onclick="showType(1)">Number of Replies in all topics</div></th>
-                <th><div class="btn" onclick="showType(2)">Number of Topic in room</div></th>
-                <th><div class="btn" onclick="showType(3)">Degree of centrality</div></th>
-                <th><div class="btn" onclick="showType(4)">Betweenness of centrality</div></th>
-                <th><div class="btn" onclick="showType(5)">Closeness of centrality</div></th>
+                <th><div class="btn disabled">User Profile</div></th>
+                <th><div class="btn disabled">View graph</div></th>
+                <th><div class="btn" onclick="showType(1)" style="color:#0066FF;">Number of Replies in all topics</div></th>
+                <th><div class="btn" onclick="showType(2)" style="color:#0066FF;">Number of Topic in room</div></th>
+                <th><div class="btn" onclick="showType(3)" style="color:#0066FF;">Degree of centrality</div></th>
+                <th><div class="btn" onclick="showType(4)" style="color:#0066FF;">Betweenness of centrality</div></th>
+                <th><div class="btn" onclick="showType(5)" style="color:#0066FF;">Closeness of centrality</div></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -203,15 +203,27 @@
        // $('#tag').append("<button type='button' id='bangrak' class='btn btn-primary btn-sm'>"+room+"</button>");
     }
     function showType(typet){
+        refresh();
         type = typet  
         if(type==1) getCentrality(room,1);
         if(type==2) getCentrality(room,2);
         if(type==3) getCentrality(room,3);
+        if(type==4) getCentrality(room,4);
+        if(type==5) getCentrality(room,5);
        // $('#tag').append("<button type='button' id='bangrak' class='btn btn-primary btn-sm'>"+room+"</button>");
        console.log('showed type (table complete)');
     }
     function refresh(){
-        location.reload();
+        $("#user_list0").empty();
+        $("#user_list1").empty();
+        $("#user_list2").empty();
+        $("#user_list3").empty();
+        $("#user_list4").empty();
+        $("#user_list5").empty();
+        $("#user_list6").empty();
+        $("#user_list7").empty();
+        $("#user_list8").empty();
+        $("#user_list9").empty();
     }
     function sendUser(user,type){
         var userId = document.getElementById("huser_list"+user).value;
