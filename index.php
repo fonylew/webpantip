@@ -59,6 +59,7 @@
 
                 <div id="container">
 
+                <h1 id="room_type" style="text-transform: uppercase; align:center;"></h2>
                 <table class="table">
                     <thead>
                       <tr>
@@ -85,7 +86,7 @@
 
                     </tbody>
                   </table>                    
-                <div id="room_type"></div>
+                
                 <style>
                 #graph-container {
                 max-width: 100%;
@@ -166,15 +167,8 @@
 
 
                 <!-- footer content -->
+                <?php include 'footer.php';?>
 
-                <footer>
-                    <div class="">
-                        <p class="pull-right">Social Network Analysis on Key Player using Pantip.com as case study. 2015&copy;
-
-                        </p>
-                    </div>
-                    <div class="clearfix"></div>
-                </footer>
                 <!-- /footer content -->
             </div>
             <!-- /page content -->
@@ -189,7 +183,7 @@
         <div class="clearfix"></div>
         <div id="notif-group" class="tabbed_notifications"></div>
     </div>
-    <?php include 'footer.php';?>
+    
     <!--import room and tag-->
     <script type="text/javascript" src="room_tag.js"></script>
   <!--  <script type="text/javascript" src="showtag.js"></script>-->
@@ -214,6 +208,7 @@
        console.log('showed type (table complete)');
     }
     function refresh(){
+        $("#room_type").empty();
         $("#user_list0").empty();
         $("#user_list1").empty();
         $("#user_list2").empty();

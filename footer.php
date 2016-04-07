@@ -27,3 +27,11 @@
     <script type="text/javascript" src="js/flot/jquery.flot.stack.js"></script>
     <script type="text/javascript" src="js/flot/curvedLines.js"></script>
     <script type="text/javascript" src="js/flot/jquery.flot.resize.js"></script>  
+                    <footer>
+                    <div class="">
+                        <p class="pull-right">Social Network Analysis on Key Player using Pantip.com as case study. 2015&copy;
+
+                        </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>

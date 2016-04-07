@@ -139,7 +139,7 @@
     for(var i = 0 ; i < 10 ;i++) {
     $('#user_list'+i+'').append(data[i]);
     }*/
-    $('#room_type').append(room+" "+sorttype);
+    $('#room_type').append(room);
 
 }
 
