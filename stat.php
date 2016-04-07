@@ -23,7 +23,9 @@
     <div class="container">
         <div class="row">
             <h1>Power-Law Distribution</h1>
-            <img src="powerlaw.png">
+            <div class="col-sm-12 col-lg-12">
+                <img src="powerlaw.png" style="width:100%;">
+            </div>
         </div>
     </div>
 </div>

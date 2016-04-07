@@ -27,7 +27,9 @@
         <div class="col-sm-2 col-lg-2">
         </div>
           <div class="col-sm-6 col-lg-6">
-            <h3 style="align:'center'">Social Network Analysis on Key Player using Pantip.com as case study</h3>
+            <div class="col-sm-12 col-lg-12">
+                <h3 style="align:'center'">Social Network Analysis on Key Player using Pantip.com as case study</h3>
+            </div>
             <br>
             <div class="col-sm-3 col-lg-3">
             </div>
@@ -37,11 +39,14 @@
                 Sirikorn  Subboonrueng 5530591321<br></h4>
                 <br>
                 <h4 style="align:'center'">Advisor<br>
-                Assoc.Prof.Natawut Nupairoj</h4>
+                Assistant Professor Natawut Nupairoj</h4>
             </div>
             <br><br><br>
             <div class="col-sm-12 col-lg-12">
-            <h4>Department of Computer Engineering, Faculty of Engineering, Chulalongkorn University</h4>
+                <h4>Department of Computer Engineering, Faculty of Engineering, Chulalongkorn University</h4>
+            </div>
+            <div class="col-sm-12 col-lg-12">
+                <img src='images/chula_eng.jpg' style="width:100%;">
             </div>
           </div>
         </div>
