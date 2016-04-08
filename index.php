@@ -16,6 +16,9 @@
         $("#showRoom").click(function(){
             $("#room").toggle();
         });
+        $("#overall").click(function(){
+            $("#room").hide();
+        });
         //lightbox('http://pantip.com');
         // $("#room").show();
         // $("#showRoom").click(function(){
@@ -45,6 +48,7 @@
             <div class="right_col" role="main">
             <div>   
             <button type="button" id="showRoom" class="btn btn-success btn-lg">Room</button>
+            <!--button type="button" id="overall" class="btn btn-info btn-lg">Overall</button-->
             <div id="room"></div>
 
             </div>
@@ -204,6 +208,11 @@
         if(type==3) getCentrality(room,3);
         if(type==4) getCentrality(room,4);
         if(type==5) getCentrality(room,5);
+        //-----
+        if(type==6) getCentrality(room,6);
+        if(type==7) getCentrality(room,7);
+        if(type==8) getCentrality(room,8);
+        if(type==9) getCentrality(room,9);
        // $('#tag').append("<button type='button' id='bangrak' class='btn btn-primary btn-sm'>"+room+"</button>");
        console.log('showed type (table complete)');
     }
