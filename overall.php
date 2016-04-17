@@ -255,14 +255,13 @@
     }
     function sendUser(user,type){
         var userId = document.getElementById("huser_list"+user).value;
-        console.log(type+"asdfsadfsda");
-        $('#graph-container').remove(); 
         $('#graph').html('<div id="graph-container2"></div><div id="name"></div><div id="box">Please select room then click view graph!!</div>');
         createEgoGraph(userId,0);
     }
     function sendUsertoCreate(){
         var userId = document.getElementById("inputUser").value;
         console.log(userId);
+        $('#graph').html('<div id="graph-container2"></div><div id="name"></div><div id="box">Please select room then click view graph!!</div>');
         createEgoGraph(userId,1);
     }
 

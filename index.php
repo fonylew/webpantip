@@ -224,9 +224,40 @@
         room = roomr;
        // $('#tag').append("<button type='button' id='bangrak' class='btn btn-primary btn-sm'>"+room+"</button>");
     }
+
+    function refresh(){
+        $("#inputUser").val('');
+        $('#test').empty();
+        $("#user_list0").empty();
+        $("#user_list1").empty();
+        $("#user_list2").empty();
+        $("#user_list3").empty();
+        $("#user_list4").empty();
+        $("#user_list5").empty();
+        $("#user_list6").empty();
+        $("#user_list7").empty();
+        $("#user_list8").empty();
+        $("#user_list9").empty();
+
+    }
+    function sendUser(user,type){
+        var userId = document.getElementById("huser_list"+user).value;
+        console.log(type);
+        $('#graph').html('<div id="graph-container2"></div><div id="name"></div><div id="box">Please select room then click view graph!!</div>'); 
+        createEgoGraph(userId,0);
+    }
+    function sendUsertoCreate(){
+        var userId = document.getElementById("inputUser").value;
+        console.log(userId);
+        $('#graph').html('<div id="graph-container2"></div><div id="name"></div><div id="box">Please select room then click view graph!!</div>');
+        createEgoGraph(userId,1);
+    }
+
     function showType(typet){
         refresh();
-        type = typet  
+        type = typet;
+        console.log(type);
+        console.log(room);
         if(type==1) getCentrality(room,1);
         if(type==2) getCentrality(room,2);
         if(type==3) getCentrality(room,3);
@@ -240,35 +271,6 @@
        // $('#tag').append("<button type='button' id='bangrak' class='btn btn-primary btn-sm'>"+room+"</button>");
        console.log('showed type (table complete)');
     }
-    function refresh(){
-        $("#inputUser").val('');
-        $('#test').empty();
-        $("#room_type").empty();
-        $("#user_list0").empty();
-        $("#user_list1").empty();
-        $("#user_list2").empty();
-        $("#user_list3").empty();
-        $("#user_list4").empty();
-        $("#user_list5").empty();
-        $("#user_list6").empty();
-        $("#user_list7").empty();
-        $("#user_list8").empty();
-        $("#user_list9").empty();
-    }
-    function sendUser(user,type){
-        var userId = document.getElementById("huser_list"+user).value;
-        console.log(type);
-        $('#graph-container').remove(); 
-        $('#graph').html('<div id="graph-container2"></div><div id="name"></div><div id="box">Please select room then click view graph!!</div>'); 
-        createEgoGraph(userId,0);
-    }
-    function sendUsertoCreate(){
-        var userId = document.getElementById("inputUser").value;
-        console.log(userId);
-        createEgoGraph(userId,1);
-    }
-
-
   </script>
 
 
