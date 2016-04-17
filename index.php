@@ -127,7 +127,18 @@
                 background-color: #eeeeee;
                 z-index: 1;
                 }
-
+                #name{
+                width: 100px;
+                height: 50px;
+                z-index: 10;
+                margin-top: 10px;
+                margin-right: 10px;
+                padding: 10px;
+                position: relative;
+                float: left;
+                opacity: 1;
+                font-size: 20px;
+                }
                 #box{
                 width: 250px;
                 height: 200px;
@@ -138,9 +149,10 @@
                 background-color: #ffffff;
                 position: relative;
                 float: right;
-                opacity: 0.5;
+                opacity: 0.6;
                 border-style: dotted;
                 border-width: 1px;
+                font-size: 16px;
                 }
                 .fancybox .fancybox-nav {
                     width: 60px;       
@@ -166,6 +178,7 @@
                 <div class="row">
                 <div id="graph">  
                 <div id="graph-container2"></div>
+                <div id="name"></div>
                 <div id="box">Please select room then click view graph!!</div>
                 </div>
                 </div>
@@ -228,6 +241,8 @@
        console.log('showed type (table complete)');
     }
     function refresh(){
+        $("#inputUser").val('');
+        $('#test').empty();
         $("#room_type").empty();
         $("#user_list0").empty();
         $("#user_list1").empty();
@@ -242,9 +257,9 @@
     }
     function sendUser(user,type){
         var userId = document.getElementById("huser_list"+user).value;
-        console.log(type+"asdfsadfsda");
+        console.log(type);
         $('#graph-container').remove(); 
-        $('#graph').html('<div id="graph-container2"></div><div id="box">Please select room then click view graph!!</div>'); 
+        $('#graph').html('<div id="graph-container2"></div><div id="name"></div><div id="box">Please select room then click view graph!!</div>'); 
         createEgoGraph(userId,0);
     }
     function sendUsertoCreate(){

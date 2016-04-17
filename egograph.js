@@ -1,8 +1,10 @@
 function createEgoGraph(user,type){
-    console.log("createEgo already !!")
+    console.log("createEgo already !!");
     if(type == 1){
     $('#test').text('Create Graph Already !!');
-  }
+    }
+    $('#name').append(user);
+
          var g = {
             nodes: [],
             edges: []
@@ -49,6 +51,7 @@ function createEgoGraph(user,type){
       '#316190',//wahkor blue nude light
       '#B3603D'//writer purple blue very dark
     ];
+
     var s = new sigma({
       graph: g,
       renderer: {
@@ -206,23 +209,24 @@ function createEgoGraph(user,type){
                 console.log(e.type, e.data.node.label, e.data.node.neo4j_labels[0]);
                 $("#box").show();
                 if(e.data.node.neo4j_labels[0] == "User"){
-                $('#box').append('id : '+e.data.node.neo4j_data['id']+'<br>\
-                  closeness :  '+e.data.node.neo4j_data['closeness_centrality']+'<br>\
-                  degree : '+e.data.node.neo4j_data['degree']+'<br>\
-                  betweenness : '+e.data.node.neo4j_data['betweenness_centrality']+'\
+                $('#box').append('ID : '+e.data.node.neo4j_data['id']+'<br>\
+                  Closeness :  '+e.data.node.neo4j_data['closeness_centrality']+'<br>\
+                  Degree : '+e.data.node.neo4j_data['degree']+'<br>\
+                  Betweenness : '+e.data.node.neo4j_data['betweenness_centrality']+'\
                   ');
+            
                 }
                 if(e.data.node.neo4j_labels[0] == "Topic"){
-                  $('#box').append('id :  '+e.data.node.neo4j_data['id']+'<br>\
-                  emo : '+e.data.node.neo4j_data['emo']+'<br>\
-                  like : '+e.data.node.neo4j_data['like']+'<br>\
-                  room : '+e.data.node.neo4j_data['room']+'<br>\
-                  timestamp : '+e.data.node.neo4j_data['timestamp']+'\
+                  $('#box').append('ID :  '+e.data.node.neo4j_data['id']+'<br>\
+                  Emo : '+e.data.node.neo4j_data['emo']+'<br>\
+                  Like : '+e.data.node.neo4j_data['like']+'<br>\
+                  Room : '+e.data.node.neo4j_data['room']+'<br>\
+                  Timestamp : '+e.data.node.neo4j_data['timestamp']+'<br>\
+                  Replies  : '+e.data.node.neo4j_data['degree']+'\
                   ');
                 }
               });
               s.bind('outNode', function(e) {
-                console.log("hello");
                 $("#box").hide();
                 $('#box').empty(); 
               });
