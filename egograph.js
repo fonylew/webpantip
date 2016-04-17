@@ -1,5 +1,8 @@
 function createEgoGraph(user,type){
     console.log("createEgo already !!")
+    if(type == 1){
+    $('#test').text('Create Graph Already !!');
+  }
          var g = {
             nodes: [],
             edges: []

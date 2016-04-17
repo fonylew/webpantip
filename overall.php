@@ -12,7 +12,7 @@
         //lightbox(link);
     // });
     $(document).ready(function(){
-        $("#room").show();
+
         $("#showRoom").click(function(){
             $("#room").toggle();
         });
@@ -47,20 +47,20 @@
             <!-- draw graph -->
             <div class="right_col" role="main">
             <div>
-                <div>
-                    <form action="overall.php">    
-                    <button type="button" id="showRoom" class="btn btn-success btn-lg">Room</button>
-                    <button type="submit" class="btn btn-info btn-lg">Overall</button>
-                    </form>
-                </div>
+            <div>
+            <form action="index.php">    
+            <button type="submit" class="btn btn-success btn-lg">Room</button>
+            <button type="button" class="btn btn-info btn-lg">Overall</button>
+            </form>
+            </div>
             <!--button type="button" id="overall" class="btn btn-info btn-lg">Overall</button-->
-                <div class="pull-right">
-                    <input class="btn" type="text" id="inputUser" placeholder="Enter User ID"></input>
-                    <button class="btn" type="button" id="buttonS" onclick="sendUsertoCreate()">search</button>
-                    <div id="test"></div>
-                </div>
+            <div class="pull-right">
+            <input class="btn" type="text" id="inputUser" placeholder="Enter User ID"></input>
+            <button class="btn" type="button" id="buttonS" onclick="sendUsertoCreate()">search</button>
+            <div id="test"></div>
+            </div>
 
-                <div id="room"></div>
+            <h1 style="text-transform: uppercase; align:center;">Overall</h2>
 
             </div>
 
@@ -80,11 +80,10 @@
                       <tr>
                 <th><div class="btn disabled">User Profile</div></th>
                 <th><div class="btn disabled">View graph</div></th>
-                <th><div class="btn" onclick="showType(1)" style="color:#0066FF;">Number of Replies in all topics</div></th>
-                <th><div class="btn" onclick="showType(2)" style="color:#0066FF;">Number of Topic in room</div></th>
-                <th><div class="btn" onclick="showType(3)" style="color:#0066FF;">Degree of centrality</div></th>
-                <th><div class="btn" onclick="showType(4)" style="color:#0066FF;">Betweenness of centrality</div></th>
-                <th><div class="btn" onclick="showType(5)" style="color:#0066FF;">Closeness of centrality</div></th>
+                <th><div class="btn" onclick="showType(6)" style="color:#0066FF;">Number of Topic Posted </div></th>
+                <th><div class="btn" onclick="showType(7)" style="color:#0066FF;">Degree of centrality</div></th>
+                <th><div class="btn" onclick="showType(8)" style="color:#0066FF;">Betweenness of centrality</div></th>
+                <th><div class="btn" onclick="showType(9)" style="color:#0066FF;">Closeness of centrality</div></th>
                       </tr>
                     </thead>
                     <tbody>

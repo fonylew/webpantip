@@ -151,40 +151,70 @@ function table(roomname,type){
   var bg1="",bg2="",bg3="",bg4="",bg5="";
   switch(type){
     case 1:
-      geturl+='rep';
+      geturl+='rep?room="'+roomname+'"';
       bg1=bgcolor;
       break;
     case 2:
-      geturl+='droom';
+      geturl+='droom?room="'+roomname+'"';
       bg2=bgcolor;
       break;
     case 3:
-      geturl+='deg';
+      geturl+='deg?room="'+roomname+'"';
       bg3=bgcolor;
       break;
     case 4:
-      geturl+='bet';
+      geturl+='bet?room="'+roomname+'"';
       bg4=bgcolor;
       break;
     case 5:
       geturl+='clo';
       bg5=bgcolor;
       break;
+    case 6:
+      geturl+='all_sum';
+      bg2=bgcolor;
+      break;
+    case 7:
+      geturl+='all_deg';
+      bg3=bgcolor;
+      break;
+    case 8:
+      geturl+='all_bet';
+      bg4=bgcolor;
+      break;
+    case 9:
+      geturl+='all_clo';
+      bg5=bgcolor;
+      break;
+
     default:
       geturl+='cen';
       bg1=bgcolor;
       break;
   }
-  $.get(geturl+'?room="'+roomname+'"', function(data){
-    for(var i = 0 ; i < 10 ;i++) {
-      $('#user_list'+i+'').append('<th><a class="ality" href="http://pantip.com/profile/'+data[i]['nid']+'" data-lity>'+data[i]['nid']+' </a></th>\
-      <th><input id="huser_list'+i+'" type="hidden" value ="'+data[i]['nid']+'"></input><button  onclick=\"sendUser('+i+','+1+')\"> view graph </button></th>\
-      <th'+bg1+'>'+data[i]['deg_room']+'</th>\
-      <th'+bg2+'>'+data[i]['sum']+'</th>\
-      <th'+bg3+'>'+data[i]['ndegree']+'</th>\
-      <th'+bg4+'>'+data[i]['nbetween']+'</th>\
-      <th'+bg5+'>'+data[i]['ncloseness']+'</th>\
-      ');
+  $.get(geturl, function(data){
+    if(type <= 5 ){
+      for(var i = 0 ; i < 10 ;i++) {
+        $('#user_list'+i+'').append('<th><a class="ality" href="http://pantip.com/profile/'+data[i]['nid']+'" data-lity>'+data[i]['nid']+' </a></th>\
+        <th><input id="huser_list'+i+'" type="hidden" value ="'+data[i]['nid']+'"></input><button  onclick=\"sendUser('+i+','+1+')\"> view graph </button></th>\
+        <th'+bg1+'>'+data[i]['deg_room']+'</th>\
+        <th'+bg2+'>'+data[i]['sum']+'</th>\
+        <th'+bg3+'>'+data[i]['ndegree']+'</th>\
+        <th'+bg4+'>'+data[i]['nbetween']+'</th>\
+        <th'+bg5+'>'+data[i]['ncloseness']+'</th>\
+        ');
+      }
+    }
+    else{
+      for(var i = 0 ; i < 10 ;i++) {
+        $('#user_list'+i+'').append('<th><a class="ality" href="http://pantip.com/profile/'+data[i]['nid']+'" data-lity>'+data[i]['nid']+' </a></th>\
+        <th><input id="huser_list'+i+'" type="hidden" value ="'+data[i]['nid']+'"></input><button  onclick=\"sendUser('+i+','+1+')\"> view graph </button></th>\
+        <th'+bg2+'>'+data[i]['sum']+'</th>\
+        <th'+bg3+'>'+data[i]['ndegree']+'</th>\
+        <th'+bg4+'>'+data[i]['nbetween']+'</th>\
+        <th'+bg5+'>'+data[i]['ncloseness']+'</th>\
+        ');
+      }
     }
   });
 }
